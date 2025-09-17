@@ -14,10 +14,8 @@
 
 
 | Zh-k | időpont | órai munka | házi feladat | ZH időtartam | ZH pont |
-| -------- | ------- | -------- | ------- | -------- |
-
-    - Zh-k - időpont - órai munka - házi feladat - ZH időtartam - ZH pont
-    - 1. zh - 5. hét - 3X1 - 2+2 - 30p - 4 - 11
+| -------- | ------- | -------- | ------- | -------- | ------- |
+| 1. zh | 5. hét | 3X1 | 2+2 | 30p | 4 - 11 |
     - 2. zh - 8. hét - 2X1 - 
     - 3. zh -
     - 4. zh
@@ -38,3 +36,7 @@
 - Informatikai mentor program (konzultációk)
 
 # Piton
+
+## Ea2
+
+- mi az a szamitogep

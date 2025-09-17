@@ -1,4 +1,4 @@
-# Állt
+# 1. óra
 - Kőműves Emese
 - komuvesemeseon@gmail.com
 
@@ -116,3 +116,72 @@ ponthatárok:
 
 - ekvivalencia:
     - F és G formulák ekvivalensek, ha F <-> G minden esetben igaz
+
+
+
+# 2. Hét
+
+Ismert ekvivalenciák:
+1. Implikációt ki tudjuk fejeznidiszjunkcióval és negációval: A->B --- (nA)vB
+2. Negáció alaptulajdonság:  n(nA) --- A
+3. De Morgan azonosság: 
+    - n(AvB) --- (nA)^(nB)
+    - n(A^B) --- (nA)v(nB)
+4. v és ˇalaptuulajdonságai (néhány)
+    - kommutatív
+    - asszociatív
+5. -> és <-> tulajdonságai
+    - A<->B --- (A->B)^(B->A)
+
+## Feladat
+
+### 1.8
+- n(A->B) --- n((nA)vB) --- (n(nA))^(nB) --- A^(nB)
+
+### 1.9
+- klóz: olyan formula melyben a változók és a váétozók negáltjai diszjunkciójával szerepelnek és legfeljebb egyszer
+    - pl: _v_v_ viszont nA^BvC nem klót -> csak BvC
+- konjunktív normál forma:
+    - olyan formula ami több klózból épül föl, konjunkciócal elválasztva
+    - F K1^K2...^Kx
+    - pl: (AvB)^(AvC)
+- taljes konjunktív normálforma
+    - mindek kólzjában szerepel az összes prímítélet egyetlen egyszer
+    - A1,...,An náltozók, K1^...^Kn <- knf, és a1,...An ítéletváltozók mindegyike negálva vagy negálatlanul szerepel az összes K1,...,Kn-ben
+    - pl: (AvBvC)^(Av(nB)vC)
+- F1 = knf
+- F2 = egyesevel, nem knf
+- F3 = tknf
+- F4 = tknf
+- F6 = külön klózok
+
+### 1.10
+- Av(nB) -> (C<->B)
+
+| A | B | C | nB | Av(nB) | C <-> B | Av(nB) -> (C<->B) |
+|i|
+|i|
+|i|
+|i|
+|h|
+|h|
+|h|
+|h|
+
+## Predikátum kalulus
+- univerzális kvantor $\forall$: minden
+- egszisztenciális kvantor $\exists$: létezik, van olyan
+- predikátorjel: pl nagyobb N(x,y):x>y
+    - N(3,2) - igaz
+- Predikátum:
+    - olyan kifejezés amelybe alkalmas objektumokat behelyettesítve ítéletet kapunk
+    - pl: P(x): x piros --> P(alma) = alma piros
+
+### 2.1
+- P(x) x páros szám, O(x,y): x osztója y-nak, o(a,b)=a+b, s(a,b)=a*B
+- a) P(7): 7 páros szám - nem
+- d) ($\exists$)(P(x)O(x,6))  létezik olyan száma, ami páros és oosztója 6-nak
+- f) ($\forall$ x)($\forall$ y)(P(o(x,y)) <-> P(s(x,y))) - Két egész szám összege páro pontosan akkor, ha szorzatuk is páros - nuh uh
+
+### 2.2
+- 

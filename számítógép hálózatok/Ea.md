@@ -46,3 +46,4 @@
         - alá kerülnek az ISP-k
     - kevés nagy fokszám (tier 1)
     - sok kis fokszám
+## Második ea
