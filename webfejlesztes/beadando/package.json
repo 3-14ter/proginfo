@@ -1,0 +1,12 @@
+{
+  "name": "beadando",
+  "version": "1.0.0",
+  "description": "This is a web development assignment, that is a basic air combat simulator inspired by War Thunder. \r <br>",
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "engine.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
