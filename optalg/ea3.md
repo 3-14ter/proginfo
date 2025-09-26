@@ -42,4 +42,4 @@
     - x1<=40
 - csúcs: két egyenes metszéspontja
 - tétel: ha van optimális megoldás, akkor olyan optimális megoldás is van, ami a lehetséges megoldáso tartomány csúcspontja
-- 
+-     
