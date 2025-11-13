@@ -22,4 +22,4 @@ if __name__=="__main__":
     p = int(input())
     z = int(input())
     k = int(input())
-    print(gyongyok_ara(p,z,k))
+    print(gyongyok_ara(p,z,k)) 
