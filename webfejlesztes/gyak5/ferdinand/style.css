@@ -1,0 +1,67 @@
+* {
+    margin: 0;
+}
+
+h1, h2 {
+    text-align: center;
+    margin-top: 24px;
+    margin-bottom: 8px;
+}
+
+/* MENU */
+nav {
+    background-color: #95c1ff;
+    text-align: center;
+}
+
+#menu {
+    padding: 0;
+}
+
+.active {
+    background-color: #4d9be3;
+    font-weight: 600;
+}
+
+.menu-link {
+    
+}
+
+/* INFO */
+.info-card {
+    width: 900px;
+    height: 300px;
+    margin: 0 auto;
+    background-color: #d7e6ff;
+    padding: 20px;
+}
+
+.info-description {
+    text-align: justify;
+    line-height: 2;
+    letter-spacing: 0.2px;
+}
+
+img {
+    width: 300px;
+    margin-right: 10px;
+}
+
+/* ADVANTAGE */
+.advantage-container {
+    text-align: center;
+}
+
+.advantage {
+    background-color: #d7e6ff;
+    width: 265px;
+    margin: 0 20px;
+}
+
+/* PRICE */
+#price {
+    margin: 30px auto;
+    text-align: center;
+    font-weight: 550;
+    font-size: 32px;
+}

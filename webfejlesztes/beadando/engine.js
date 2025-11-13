@@ -5,9 +5,9 @@ async function parseSTL() {
   const magicChunk = stl.slice(0, 5);
   const textDecoder = new TextDecoder("ascii");
   const header = textDecoder.decode(magicChunk);
+  const dv = new DataView(stl, 80);
   const isAsciiSTL = header === "solid";
   const triangleCount = dv.getUint32(0, true);
-  const dv = new DataView(stl, 80);
   if (!isAsciiSTL) {
     console.log("Binary STL, triangles:", triangleCount);
   } else {

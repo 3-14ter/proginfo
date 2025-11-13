@@ -1,0 +1,28 @@
+body{
+    background-color: #131313;
+    color:white;
+}
+
+h1{
+    align-self: center;
+}
+
+p{
+    align-self: center;
+}
+
+
+h2{
+    
+}
+
+main-img-container{
+border-radius: 20px;
+}
+main-img {
+align-self: center;
+border-radius: 20px;
+}
+skill-table{
+
+}
