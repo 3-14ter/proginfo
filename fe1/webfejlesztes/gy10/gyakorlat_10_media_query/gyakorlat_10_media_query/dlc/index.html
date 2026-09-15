@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../orai/css/style.css">
+    <link rel="stylesheet" href="../orai/css/responsive.css">
+    <link rel="shortcut icon" href="../orai/assets/logo.png" type="image/x-icon">
+    <title>Legendás állatok és megfigyelésük</title>
+    <script src="./js/foscript.js"></script>
+</head>
+<body>
+    <header>
+        <img src="../orai/assets/logo.png" alt="Logó">
+    </header>
+    <main>
+        <div class="img-container">
+            <img id="silentpaw" src="../orai/assets/silentpaw.webp" alt="Silentpaw" onclick="selectHouse(this);location.href = './pages/cats.html';">
+            <img id="goldentail" src="../orai/assets/goldentail.webp" alt="Goldentail" onclick="selectHouse(this);location.href = './pages/dogs.html';">
+        </div>
+        <button style="border: none; background: none;" onclick="if(prompt('Mi a varázsszó?').toLowerCase().trim()==='kérlek'){localStorage.removeItem('house');window.location.reload();}">Rektori kérvény házváltásra.</button>
+    </main>
+</body>
+</html>

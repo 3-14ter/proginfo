@@ -1,0 +1,91 @@
+* {
+    margin: 0;
+}
+
+body {
+    
+    overflow-x: hidden;
+}
+
+header {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    background-image: url('../assets/bg.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: 8px 8px 12px black;
+
+    img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        width: 500px;
+        animation: float-in 0.7s ease-in-out backwards, float 1.5s linear 0.7s alternate infinite;
+        transform-origin: left center;
+        user-select: none;
+    }
+
+    
+}
+
+@keyframes float-in {
+    from {
+        opacity: 0;
+        transform: scale(0.6) translate(-50%,-50%);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1.25) translate(-50%,-50%);
+    }
+}
+
+@keyframes float {
+    from {
+        transform: scale(1.25) translate(-50%,-50%);
+    }
+    to {
+
+    }
+}   
+
+main {
+    width: 100vw;
+    height: 100vh;
+    background-image: url('../assets/main-bg.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+
+    .img-container {
+        width: 70vw;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        display: flex;
+        justify-content: space-between;
+
+        img {
+            width: 500px;
+            height: 600px;
+            cursor: pointer;
+        }
+
+        img:hover {
+            animation: house-float 0.5s ease-in-out alternate infinite;
+            transform-origin: center;
+        }
+
+    }
+
+}
+@keyframes house-float {
+    from {
+        
+    }
+    to {
+        transform: scale(1.05);
+    }
+}   

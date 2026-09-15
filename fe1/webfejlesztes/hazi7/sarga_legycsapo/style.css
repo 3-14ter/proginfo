@@ -1,0 +1,130 @@
+* {
+    margin: 0;
+}
+
+h1 {
+    text-align: center;
+    margin: 12px;
+    color: #e6b410;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+#product-image {
+    display: block;
+    margin: 12px auto 20px auto;
+    width: 300px;
+    border-radius: 8px;
+    transition: 0.2s ease-in-out;
+}
+
+#product-image:hover {
+    transform: scale(1.02);
+}
+
+.comments, .new-comment {
+    width: 1200px;
+    margin: 0 auto 20px auto;
+    background-color: #ededed;
+    padding: 20px;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.comment-text {
+    line-height: 1.5;
+    margin-bottom: 12px;
+}
+
+.comment-date {
+    display: inline-block;
+    color: #a1a1a1;
+}
+
+.comment-name {
+    font-weight: 600;
+    text-align: right;
+    display: inline-block;
+    float: right;
+}
+
+hr {
+    margin: 20px 0;
+}
+
+label {
+    display: block;
+    color: #333;
+}
+
+input {
+    margin-bottom: 20px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="date"],
+input[type="datetime-local"],
+input[type="number"],
+input[type="password"],
+input[type="tel"],
+input[type="file"],
+textarea,
+select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+input[type="submit"],
+input[type="reset"] {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-bottom: 0;
+}
+
+input[type="submit"] {
+    background-color: #28a745;
+    color: white;
+}
+
+input[type="reset"] {
+    background-color: #dc3545;
+    color: white;
+}
+
+input[type="submit"]:hover,
+input[type="reset"]:hover {
+    opacity: 0.9;
+}
+
+.info {
+    text-align: center;
+    color: #a1a1a1;
+    font-size: large;
+    margin-bottom: 10px;
+}
+
+.register-form {
+    width: 1000px;
+    margin: 0 auto 20px auto;
+    background-color: #ededed;
+    padding: 20px;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+p {
+    margin-bottom: 10px;
+}

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Űr-Lapok</title>
+</head>
+<body>
+    <img id="urcica" src="./assets/urcica.png" alt="Szkafanderes macska. UwU">
+    <div class="bubble" onclick="showPanel('job')">
+        <img src="./assets/job_application.png" alt="papír">
+    </div>
+
+    <div class="bubble" onclick="showPanel('cat')">
+        <img src="./assets/cat_adoption.png" alt="papír">
+    </div>
+
+    <div class="bubble" onclick="showPanel('tour')">
+        <img src="./assets/space_tour_booking.png" alt="papír">
+    </div>
+
+
+    <div id="job-panel" class="paper-panel">
+        <div class="close-button">X</div>
+
+        <form action="#" method="post">
+            <fieldset>
+                <legend><h2>Jelentkezés állásra</h2></legend>
+                <input type="hidden" name="hidden-input" id="hidden-input">
+
+                <label>
+                    Teljes név<br>
+                    <input id="full-name" name="full-name" type="text" placeholder="Vámos János" required>
+                </label>
+
+                <label>
+                    Email cím<br>
+                    <input id="email" name="email" type="email" placeholder="you@example.com" required>
+                </label>
+
+                <label>
+                    Telefonszám<br>
+                    <input id="tel" name="tel" type="tel" placeholder="+36 30 123 4567" required>
+                </label>
+
+                <label>
+                    Miért Önt válasszuk?<br>
+                    <textarea id="textarea" name="textarea" placeholder="Pár mondatban fejtse ki!" maxlength="200" required></textarea>
+                </label>
+
+                <label>
+                    CV feltöltése PDF formátumban.<br>
+                    <input id="file-input" name="file-input" type="file" accept=".pdf" required>
+                </label>
+
+                <label for="pass">Adja meg a titkos kódot!</label>
+                <input id="pass" type="password" name="pass">
+                <button type="submit">Véglegesítés</button>
+            </fieldset>
+        </form>
+    </div>
+
+    <div id="cat-panel" class="paper-panel">
+        <div class="close-button">X</div>
+
+        <form action="#" method="post">
+            <fieldset>
+                <legend><h2>Űrmacska örökbefogadás</h2></legend>
+                <label>
+                    Vásárló teljes neve<br>
+                    <input id="full-name2" name="full-name" type="text" placeholder="Vámos János" maxlength="200" required>
+                </label>
+
+                <label>
+                    Kedvelt macskaszín<br>
+                    <input id="macskolor" name="macskolor" type="color">
+                </label>
+
+                <label>
+                    Átvétel tervezett időpontja<br>
+                    <input id="atvetel-idopont" name="atevetel-idopont" type="time">
+                </label>
+
+                <label>Válaszd ki a cicafajtákat</label>
+                <div class="checkbox-group">
+                    <label>
+                        <input id="cat-1" name="cat-1" value="cat-1" type="checkbox"> Galaktikus rövidszőrű
+                    </label>
+
+                    <label>
+                        <input id="cat-2" name="cat-2" value="cat-2" type="checkbox"> Köd-Maine Coon
+                    </label>
+
+                    <label>
+                        <input id="cat-3" name="cat-3" value="cat-3" type="checkbox"> Sötétanyag Szfinx
+                    </label>
+
+                    <label>
+                        <input id="cat-4" name="cat-4" value="cat-4" type="checkbox"> Csillagtigris csíkos cica
+                    </label>
+
+                    <label>
+                        <input id="cat-5" name="cat-5" value="cat-5" type="checkbox"> Kvantum kiscica
+                    </label>
+                </div>
+
+                <label>
+                    Mennyire vagy felkészült egy űrmacskára? <input id="felkeszultseg" name="felkeszultseg" type="range" min="0" max="10">
+                </label>
+
+                <label>
+                    Profilod linkje (nem kötelező) <input id="profillink" name="profillink" type="url" placeholder="https://te-oldalad.hu">
+                </label>
+
+                <button type="submit">Örökbefogadás</button>
+            </fieldset>
+        </form>
+    </div>
+
+    <div id="tour-panel" class="paper-panel">
+        <div class="close-button">X</div>
+
+        <form action="#" method="post">
+            <fieldset>
+                <legend><h2>Űrutazás foglalás</h2></legend>
+                <label>
+                    Úti cél<br>
+                    <select name="uticel">
+                        <option value="fold">Föld körüli pálya</option>
+                        <option value="hold">Hold-repülés</option>
+                        <option value="mars">Mars-körüli pálya</option>
+                        <option value="titok">Titkos szektor</option>
+                    </select>
+                </label>
+
+                <label>
+                    Utasok száma<br>
+                    <input name="utasszam" type="number" min="1" max="6" value="1">
+                </label>
+
+
+                <label>
+                    Indulás dátuma<br>
+                    <input name="indulas-datum" min="1940-01-01" type="date">
+                </label>
+
+
+                <label>Utazási osztály</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="class" value="economy"> Orbit Economy</label>
+                    <label><input type="radio" name="class" value="business"> Nebula Business</label>
+                    <label><input type="radio" name="class" value="first"> Galaxy First</label>
+                </div>
+
+                <button type="submit">Foglalás elküldése</button>
+            </fieldset>
+
+
+        </form>
+    </div>
+
+
+
+    <script src="./js/script.js"></script>
+</body>
+</html>

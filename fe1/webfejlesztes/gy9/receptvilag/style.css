@@ -1,0 +1,97 @@
+* {
+    margin: 0;
+}
+
+body {
+    background-color: #f4f4f4;
+}
+
+nav {
+    background-color: #2573cc;
+    height: 50px;
+    top: 0;
+    position: sticky;
+    z-index: 100;
+}
+
+nav ul {
+    list-style-type: none;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+nav li {
+    float: left;
+    width: 25%;
+}
+
+nav li.active {
+    background-color: #1a5393;
+    font-weight: bold;
+}
+
+nav li:hover {
+    background-color: #073e7e;
+}
+
+nav a {
+    display: block;
+    text-decoration: none;
+    color: white;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 16px;
+}
+
+h1 {
+    text-align: center;
+    margin: 16px;
+}
+
+.recipes {
+    max-width: 1600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.recipe {
+    display: inline-block;
+    position: relative;
+    vertical-align: top;
+    width: 600px;
+    margin: 10px;
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: justify;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.15);
+
+    h2 {
+        margin-bottom: 10px;
+    }
+
+    img {
+        width: 160px;
+        float: left;
+        margin-right: 20px;
+        border-radius: 6px;
+        transition: 0.2s ease-in-out;
+    }
+
+    img:hover {
+        transform: scale(1.05);
+    }
+
+    p {
+        line-height: 1.25; 
+    }
+}
+@media (max-width: 1260px){
+nav li {
+    float: left;
+    width: 50%;
+}
+}
+

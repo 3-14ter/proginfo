@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML 2</title>
+
+    <!-- NE NÉZD AMI ITT VAN, KÉSŐBB LESZ ÉRTELME -->
+
+    <style>
+        h1 {
+            background-color: aqua;
+        }
+
+        p {
+            background-color: red;
+        }
+
+        span {
+            background-color: green;
+        }
+
+        table {
+            width: 300px;
+            min-height: 500px;
+            border-collapse: collapse;
+
+
+            img {
+                width: 200px;
+            }
+        }
+
+        tr,
+        th,
+        td {
+            border: 1px solid black;
+
+        }
+
+        th {
+            padding: 10px;
+        }
+
+        td {
+            padding: 20px;
+        }
+
+        hr {
+            margin: 30px;
+        }
+    </style>
+
+    <!-- ÉRTELMETLEN RÉSZ VÉGE -->
+</head>
+
+<body>
+    <div>
+        <h1>Ez egy blockszintű elem</h1>
+        <p>Ez is egy blockszintű elem</p>
+        <p>Ez is egy blockszintű elem</p>
+    </div>
+
+    <div>
+        <span>Ez egy sorszintű elem</span>
+        <span>Ez is sorszintű elem</span>
+        <span>Ez is sorszintű elem</span>
+    </div>
+
+    <hr>
+
+    <div>
+        <ul>
+            <li>Első elem</li>
+            <li>Második elem</li>
+            <li>Harmadik elem</li>
+            <li>Beágyazott lista:
+                <ul>
+                    <li>Beágyazott lista első lista eleme</li>
+                    <li>Beágyazott lista második lista eleme</li>
+                </ul>
+            </li>
+        </ul>
+
+        <hr>
+
+        <ol>
+            <li>Első elem</li>
+            <li>Második elem</li>
+            <li>Harmadik elem</li>
+            <li>Beágyazott lista:
+                <ol reversed type="a">
+                    <li>Beágyazott lista első lista eleme</li>
+                    <li>Beágyazott lista második lista eleme</li>
+                    <li>Beágyazott lista harmadik lista eleme</li>
+                </ol>
+            </li>
+        </ol>
+    </div>
+
+    <hr>
+
+    <table>
+        <caption>Macskatár</caption>
+        <thead>
+            <tr>
+                <th>Cica neve</th>
+                <th>Cica fajtája</th>
+                <th>Cica neme</th>
+                <th>Kép</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Szemi</td>
+                <td>Házimacska</td>
+                <td>Nőstény</td>
+                <td><img src="./assets/szemi.jpg" alt="Szemi"></td>
+            </tr>
+            <tr>
+                <td>Szilveszter</td>
+                <td>Vadmacska</td>
+                <td>Hím</td>
+                <td><img src="./assets/szilveszter.png" alt="Szilveszter"></td>
+            </tr>
+            <tr>
+                <td>Kormi</td>
+                <td>Fekete párduc</td>
+                <td>Hím</td>
+                <td><img src="./assets/kormi.jpg" alt="Kormi"></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>

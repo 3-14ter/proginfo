@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../../orai/assets/silentpaw.webp" type="image/x-icon">
+    <link rel="stylesheet" href="../../orai/css/animal.css">
+    <link rel="stylesheet" href="../../orai/css/responsive.css">
+    <title>Document</title>
+
+    <style>
+      header {
+        background-image: url('../../orai/assets/silentpaw_house.png');
+      }
+
+      body {
+        background: #003d18;
+        background: linear-gradient(90deg,rgba(0, 61, 24, 1) 0%, rgba(7, 51, 21, 1) 15%, rgba(26, 59, 39, 1) 31%, rgba(18, 61, 45, 1) 47%, rgba(10, 51, 33, 1) 59%, rgba(1, 59, 30, 1) 69%, rgba(0, 0, 0, 1) 100%);
+      }
+
+    </style>
+</head>
+<body>
+    <header>
+        <img class="crest" src="../../orai/assets/silentpaw.webp" alt="címer">
+    </header>
+    
+    <div style="display: block; text-align: center; margin: 24px; color: white;"><label>Csak kedvencek: <input type="checkbox" name="kedvenconly" id="csakkedv" onchange="csakKedvenc(this.checked)"></label></div>
+
+    <div class="gallery">
+
+      <div class="animal mobil-animal">
+        <div class="text">
+          <h2>Mazsola</h2>
+        </div>
+        <img src="../../orai/assets/cats/dlcica/mazsola.jpg" alt="cica1">
+      </div>
+
+      <div class="animal">
+        <div class="text">
+          <h2>Artúr</h2>
+        </div>
+        <img src="../../orai/assets/cats/01/artur.jpg" alt="cica2">
+      </div>
+
+      <div class="animal">
+        <div class="text">
+          <h2>(Félszemű) Bogyó</h2>
+        </div>
+        <img src="../../orai/assets/cats/01/bogyo.jpg" alt="cica3">
+      </div>
+
+      <div class="animal">
+        <div class="text">
+          <h2>Babóca</h2>
+        </div>
+        <img src="../../orai/assets/cats/01/baboca.jpg" alt="cica4">
+      </div>
+
+      <div class="animal">
+        <div class="text">
+          <h2>Törpi</h2>
+        </div>
+        <img src="../../orai/assets/cats/01/torpi.jpg" alt="cica5">
+      </div>
+
+      <div class="animal">
+        <div class="text">
+          <h2>Ürmorgó</h2>
+        </div>
+        <img src="../../orai/assets/cats/01/urmorgo.jpg" alt="cica6">
+      </div>
+
+      <div class="animal">
+        <div class="text">
+          <h2>Károly (Karcsi)</h2>
+        </div>
+        <img src="../../orai/assets/cats/02/Karcsi/Karesz.jpg" alt="cica7">
+      </div>
+
+      <div class="animal">
+        <div class="text">
+          <h2>Kázmér Gedeon</h2>
+        </div>
+        <img src="../../orai/assets/cats/02/kazmer_gedeon/KG1.jpg" alt="cica8">
+      </div>
+
+      <div class="animal">
+        <div class="text">
+          <h2>Sándor</h2>
+        </div>
+        <img src="../../orai/assets/cats/02/Sanyi/sandor.jpg" alt="cica9">
+      </div>
+
+      <div class="animal">
+        <div class="text">
+          <h2>Void</h2>
+        </div>
+        <img src="../../orai/assets/cats/03/cat1/Void.jpg" alt="cica10">
+      </div>
+
+      <div class="animal">
+        <div class="text">
+          <h2>Cicó</h2>
+        </div>
+        <img src="../../orai/assets/cats/03/cat2/cico_mint_terfigyelo_kamera.jpg" alt="cica11">
+      </div>
+
+      <div class="animal">
+        <div class="text">
+          <h2>Virsli</h2>
+        </div>
+        <img src="../../orai/assets/cats/03/cat3/Virsli.jpg" alt="cica12">
+      </div>
+
+      <div class="animal">
+        <div class="text">
+          <h2>Félix</h2>
+        </div>
+        <img src="../../orai/assets/cats/04/felix.jfif" alt="cica13">
+      </div>
+
+      <div class="animal">
+        <div class="text">
+          <h2>Marci</h2>
+        </div>
+        <img src="../../orai/assets/cats/04/marci.jfif" alt="cica14">
+      </div>
+
+    </div>
+
+    <section id="silentpaw-house" class="house-box">
+      <h2>Silentpaw Ház – ahol a szupererők dorombolva születnek</h2>
+
+      <p>
+        Üdv a Silentpaw Házban! Itt minden lakó valami különleges, néha veszélyes,
+        néha kacagtató, néha pedig egyszerűen érthetetlen képességgel rendelkezik.
+        A folyosókon halk lépések, sejtelmes suhanások és időnként egy-egy
+        titokzatos <em>meow</em> jelzik, hogy épp valaki újabb csodát tesz vagy
+        újabb galibát okoz.
+      </p>
+
+      <div class="cat-grid house-grid">
+
+        <article class="cat house-card">
+          <h3>Artúr – az Alakváltás Mestere</h3>
+          <p>
+            Artúr bármilyen formát képes felvenni: a helyzet megkívánhatja, hogy
+            köddé váljon, átalakuljon egy ártatlan tárggyá, vagy valami olyan dologgá,
+            amiről senki sem gondolná, hogy él. Gyakran meglepi a ház lakóit egy
+            csöndes <strong>meow</strong>-val, amint váratlanul visszaváltozik.
+          </p>
+        </article>
+
+        <article class="cat house-card">
+          <h3>Babóca – a Telekinézis Nagymestere</h3>
+          <p>
+            Babóca pusztán gondolattal mozgat mindent, ami nincs odaszögelve.
+            Lebegő tárgyak, váratlanul kinyíló dobozok és maguktól elinduló tekercsek
+            mind-mind a jelenlétét jelzik. Ha valami megmozdul, és senki sem ért hozzá,
+            az biztosan Babóca műve. <strong>Meow!</strong>
+          </p>
+        </article>
+
+        <article class="cat house-card">
+          <h3>Törpi – a Láthatatlan Őrszem</h3>
+          <p>
+            Láthatatlanná válik bármelyik pillanatban. A Silentpaw Ház titkainak
+            őrzője, aki úgy mozog a folyosókon, hogy senki sem látja, csak a halvány tappancsnyomokat. Ha egy rejtély
+            megoldódik magától, az általában Törpi műve.
+          </p>
+        </article>
+
+        <article class="cat house-card">
+          <h3>Félszemű – a Lézerpillantás</h3>
+          <p>
+            Egyetlen fókuszált pillantással energiasugarat képes kibocsátani.
+            Gyertyákat gyújt, kupakokat olvaszt, sőt néha egy könyv szélét is
+            megpörköli véletlenül. A házban mindenki megtanulta: ha Félszemű szeme
+            felvillan, jobb félrehúzódni. Miiaau.
+          </p>
+        </article>
+
+        <article class="cat house-card">
+          <h3>Űrmorgó – a Korlátlan Erő Tornádója</h3>
+          <p>
+            Elképesztő fizikai erővel rendelkezik: bármit arrébb tesz, amit
+            szeretne, legyen az bútor, akadály, vagy egy óvatlanul útban hagyott
+            varázskönyv. Az energiafolyam, ami belőle árad, mindenkit tisztelettel
+            tölt el.
+          </p>
+        </article>
+
+        <article class="cat house-card">
+          <h3>Károly (Karcsi) – a Meglepő Valóság</h3>
+          <p>
+            Karcsi különleges ereje maga az igazság: ő egy leányzó. Ezt a tényt olyan
+            magabiztossággal képes közölni, hogy minden vita és minden konfliktus
+            azonnal abbamarad. Karcsi körül furcsa, tekintélyt parancsoló aura lebeg.
+          </p>
+        </article>
+
+        <article class="cat house-card">
+          <h3>Mega Szuper Bébi Cicó Kázmér Gedeon – a Kódbontó és Rendszerromboló</h3>
+          <p>
+            Programozással teremti a csodákat… majd egy apró hibával elpusztítja.
+            Képes fájlokat törölni, rendszereket lefagyasztani, és olyan technomágiát
+            alkalmazni, amit még a professzorok sem értenek. Ha hirtelen eltűnik
+            minden, az biztosan Kázmér volt. <strong>Meow</strong>?
+          </p>
+        </article>
+
+        <article class="cat house-card">
+          <h3>Sándor (Sanyi a macska) – a Másik Dimenzió Küldötte</h3>
+          <p>
+            Sanyi süket, és emiatt teljesen más rezgésszinten él. Semmi sem zavarja,
+            semmi sem billenti ki az egyensúlyából. A mágikus események közepén is
+            ugyanazzal a nyugalommal létezik, mintha egy másik világban lenne.
+          </p>
+        </article>
+
+        <article class="cat house-card">
+          <h3>Void – a Megállíthatatlan Rakéta</h3>
+          <p>
+            Void szupergyorsasággal hasít végig bármin, ami elé kerül. Megállni vagy
+            kanyarodni nem tud, így a legtöbb esemény úgy végződik, hogy Void
+            kilövi magát a sarkon túlra. Ha veszélyt érez, olyan hangosan visít,
+            hogy az egész környék hozzárohan. MIAAUUU!!!
+          </p>
+        </article>
+
+        <article class="cat house-card">
+          <h3>Cicó – a Morcos Erősítő Aura</h3>
+          <p>
+            Minden körülötte lévő barátságos lény gyorsaságot és támadóerőt kap.
+            Emellett egy morcos öregasszony szelleme él benne, aki folyamatosan
+            kommentál mindent – ezt csak Cicó hallja, de az aura mindenkit
+            erősebbé tesz. Ha valami hirtelen felgyorsul a házban, Cicó a közelben
+            van. <strong>Meow</strong>.
+          </p>
+        </article>
+
+        <article class="cat house-card">
+          <h3>Virsli – a Gondolatnélküli Nyugalom</h3>
+          <p>
+            Virslinek soha, egyetlen pillanatban sem jut eszébe semmi. Nem ismeri
+            a félelmet, nem ismeri a világ borzalmait — csak az ételt, a meleget és
+            a kellemes rezgéseket. Ő a Silentpaw Ház mentális pajzsa: mellette
+            mindenki békésebb.
+          </p>
+        </article>
+
+        <article class="cat house-card">
+          <h3>Marci &amp; Félix – az Örök Éhség és Örök Álom Egyesült Erői</h3>
+          <p>
+            Bármennyit tudnak enni bármikor, és képesek bármi alatt vagy felett
+            elaludni. Legyen az pergamen, varázstárgy, kőpadló vagy egy frissen
+            megírt esszé — nincs akadály. A kettősük garantálja, hogy a Silentpaw
+            Házban mindig van valaki, aki eszik, és valaki, aki alszik.
+          </p>
+        </article>
+
+      </div>
+
+      <p>
+        A Silentpaw Ház lakói így együtt egy különös, varázslatos, néha kissé
+        kaotikus, de végtelenül szerethető közösséget alkotnak. Meow.
+      </p>
+    </section>
+    <script src="../js/script.js"></script>
+</body>
+</html>

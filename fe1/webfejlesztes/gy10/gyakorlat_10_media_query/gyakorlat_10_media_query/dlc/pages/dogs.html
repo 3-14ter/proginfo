@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../../orai/assets/goldentail.webp" type="image/x-icon">
+    <link rel="stylesheet" href="../../orai/css/animal.css">
+    <link rel="stylesheet" href="../../orai/css/responsive.css">
+    <title>Document</title>
+
+    <style>
+      header {
+        background-image: url('../../orai/assets/goldentail_house.png');
+      }
+      
+      body {
+        background: #002a5c;
+        background: linear-gradient(
+          90deg,
+          rgba(0, 42, 92, 1) 0%,
+          rgba(7, 38, 82, 1) 15%,
+          rgba(18, 52, 109, 1) 31%,
+          rgba(14, 58, 125, 1) 47%,
+          rgba(10, 48, 115, 1) 59%,
+          rgba(1, 40, 104, 1) 69%,
+          rgba(0, 0, 0, 1) 100%
+        );
+      }
+
+    </style>
+</head>
+<body>
+    <header>
+        <img class="crest" src="../../orai/assets/goldentail.webp" alt="címer">
+    </header>
+
+    <div style="display: block; text-align: center; margin: 24px; color: white;"><label>Csak kedvencek: <input type="checkbox" name="kedvenconly" id="csakkedv" onchange="csakKedvenc(this.checked)"></label></div>
+
+    <div class="gallery">
+
+      <div class="animal">
+        <div class="text">
+          <h2>Liza</h2>
+        </div>
+        <img src="../../orai/assets/dogs/03/liza.jpg" alt="kutya1">
+      </div>
+
+      <div class="animal">
+        <div class="text">
+          <h2>Jack</h2>
+        </div>
+        <img src="../../orai/assets/dogs/01/jack.jpg" alt="kutya2">
+      </div>
+
+      <div class="animal">
+        <div class="text">
+          <h2>Mütyűr</h2>
+        </div>
+        <img src="../../orai/assets/dogs/02/mutyur/mutyur.jpg" alt="kutya3">
+      </div>
+
+      <div class="animal">
+        <div class="text">
+          <h2>Nala-baba</h2>
+        </div>
+        <img src="../../orai/assets/dogs/02/nala/nala.jpg" alt="kutya4">
+      </div>
+
+      <div class="animal">
+        <div class="text">
+          <h2>Tökmag</h2>
+        </div>
+        <img src="../../orai/assets/dogs/02/tokmag/tokmag.jpeg" alt="kutya5">
+      </div>
+
+      <div class="animal">
+        <div class="text">
+          <h2>Vizes Albán Zsemle</h2>
+        </div>
+        <img src="../../orai/assets/dogs/02/zsim-zsom/zsomle.jpg" alt="kutya6">
+      </div>
+
+      <div class="animal">
+        <div class="text">
+          <h2>Csoki</h2>
+        </div>
+        <img src="../../orai/assets/dogs/04/csoki.jpg" alt="kutya7">
+      </div>
+
+      <div class="animal">
+        <div class="text">
+          <h2>Bendegúz</h2>
+        </div>
+        <img src="../../orai/assets/dogs/05/bendeguz.jpg" alt="kutya8"></img>
+      </div>
+    </div>
+
+    <section id="goldentail-house" class="house-box">
+      <h2>Goldentail Ház – ahol a farokcsóváló hősök gyűlnek</h2>
+
+      <p>
+        Üdv a Goldentail Házban! Itt laknak azok a négylábú mágusok, akik
+        nemcsak őrzik az Akadémiát, de közben hangos <em>vau</em>-val jelzik
+        a bajt, a postást, a szelet, a madarakat, és néha azt is, ami ott sincs.
+        Szupererejük egyszerre kaotikus, hasznos és végtelenül szerethető.
+      </p>
+
+      <div class="dog-grid house-grid">
+
+        <article class="dog house-card">
+          <h3>Liza – a Bolygófaló</h3>
+          <p>
+            Liza képessége egyszerű, de félelmetesen hatékony: ő a bolygófaló.
+            Elméletben cuki, gyakorlatban képes lebontani bármilyen akadályt,
+            energiát vagy tárgyat, ami útjába kerül. Szerencsére jóindulatú –
+            de egy vacsoraasztalt nem ajánlott őrizetlenül hagyni mellette.
+          </p>
+        </article>
+
+        <article class="dog house-card">
+          <h3>Jack – a Szárnyas Vihar</h3>
+          <p>
+            Jack repülni és szupergyorsan rohanni is képes. Egyik pillanatban még
+            a folyosó végén hallod a tappancsokat, a következőben már a csillárok
+            között cikázik. Ha üzenetet kell vinni, vagy valaki elhagyja a jutifalit,
+            ő az első, aki megjelenik – akár a semmiből is.
+          </p>
+        </article>
+
+        <article class="dog house-card">
+          <h3>Mütyür – a Macskakereső Bio-riasztó</h3>
+          <p>
+            Mütyür a Goldentail Ház radarrendszere: macskakereső szupermester,
+            szelleműző és bio-riasztó egy személyben. Ha egy macska csak rágondol,
+            hogy közelebb jön, ő már ugat. A Silentpaw ház lakói tisztelik is ezért,
+            és kissé tartanak is tőle.
+          </p>
+        </article>
+
+        <article class="dog house-card">
+          <h3>Nala-baba – a Lehetetlen Pózok Álomszakértője</h3>
+          <p>
+            Nala-baba képes a fizika minden törvényét megszegni, amikor alvópozícióról
+            van szó. Három lépcsőfokon, fél fejjel lelógva, kanapé szélén, néha fejjel
+            lefelé – bárhol, bármikor, bárhogy. Az alvás számára nem tevékenység,
+            hanem művészet.
+          </p>
+        </article>
+
+        <article class="dog house-card">
+          <h3>Tökmag – a Pénztárgép-fejű Hangulatmágus</h3>
+          <p>
+            Tökmag „anya pici babája”, akinek szuperképessége a hangulatjavítás:
+            elég csak ránézni, és máris jó kedved lesz. A feje olyan, mintha
+            egy pénztárgép csilingelne minden mosolynál. Bárhova képes felmászni,
+            nincs számára olyan akadály, amit ne győzne le.
+          </p>
+        </article>
+
+        <article class="dog house-card">
+          <h3>Vizes Albán Zsemle – a Mindent Felzabáló Vihar</h3>
+          <p>
+            Zsemle pillanatok alatt felzabál bármit. És tényleg bármit.
+            Ételt, papírt, jegyzetet, seprűnyél végét, varázstekercset,
+            egy fél uzsonnát… mire kérdeznéd „Nem láttad véletlenül a—?”
+            már csak egy apró büfi a válasz.
+          </p>
+        </article>
+
+        <article class="dog house-card">
+          <h3>Csoki – a Gondolatolvasó Árnyfarkas</h3>
+          <p>
+            Csoki képes belelátni mások gondolataiba, és ha úgy tartja kedve,
+            árnyfarkassá is képes átalakulni. Ritka, félelmetes és tiszteletet
+            parancsoló erő birtokosa, de egy jutifalival teljesen kiengesztelhető.
+          </p>
+        </article>
+
+        <article class="dog house-card">
+          <h3>Bendegúz – a Szökés Művésze</h3>
+          <p>
+            Bendegúz képes bárhonnan megszökni. Szoba, mágikus rács,
+            elvarázsolt kapu – nincs előtte akadály. Ráadásul mindent szétrág,
+            amit talál. A Goldentail Házban külön csapat foglalkozik azzal,
+            hogy nyomon kövesse, épp merre jár.
+          </p>
+        </article>
+
+      </div>
+
+      <p>
+        A Goldentail Ház lakói hangosak, lelkesek és tele vannak szeretettel.
+        Ők a Silentpaw csendes macskamágusainak tökéletes ellenpontjai –
+        együtt pedig megállíthatatlan csapatot alkotnak. Vau!
+      </p>
+    </section>
+
+<script src="../js/script.js"></script>
+</body>
+</html>

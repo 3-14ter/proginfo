@@ -1,0 +1,2 @@
+def statisztika(st):
+    pass
