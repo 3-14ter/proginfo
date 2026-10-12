@@ -16,7 +16,7 @@ cv2.circle(im, (50, 100), 40, (0, 0, 192), -1)
 #   https://docs.opencv.org/5.0/py_tutorials/py_gui/py_drawing_functions/py_drawing_functions.html
 
 # --- Régi szövegkiírás (Klasszikus vektoros Hershey font, nincs ékezet) ---
-text_old = "Udvozlet az OpenCV 4-bol!"  # Az ékezetes karakterek szétesnének
+text_old = "Peti"  # Az ékezetes karakterek szétesnének
 font_old = cv2.FONT_HERSHEY_SIMPLEX
 font_scale_old = 0.8
 color_old = (128, 128, 0)  # Ciánkék

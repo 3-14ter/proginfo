@@ -1,0 +1,1135 @@
+<!DOCTYPE html>
+<html lang="hu">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Szülők, gyerekek és testvérek kijelölése. Pseudo-osztályok és pseudo-elemek ugyanazon a HTML-példán.">
+    <title>
+      Kijelölők — Meow Wars
+    </title>
+    <link rel="icon" href="../assets/paw.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="../css/style.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#kijelolok">
+      Ugrás a tananyaghoz
+    </a>
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="../index.html" aria-label="Meow Wars kezdőlap">
+          <img src="../assets/paw.svg" alt="" width="34" height="34">
+          <span>
+            MEOW
+            <b>
+              WARS
+            </b>
+            <small>
+              CSS-PÉLDÁK
+            </small>
+          </span>
+        </a>
+        <nav aria-label="Témakörök">
+          <a href="../index.html">
+            Kezdőlap
+          </a>
+          <a href="pozicionalas.html">
+            Pozicionálás
+          </a>
+          <a href="kijelolok.html" aria-current="page">
+            Kijelölők
+          </a>
+          <a href="attunesek.html">
+            Áttűnések
+          </a>
+          <a href="animaciok.html">
+            Animációk
+          </a>
+          <a href="transzformaciok.html">
+            Transzformációk
+          </a>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <section class="lesson page-width amber selectors-lesson" id="kijelolok" aria-labelledby="selectors-title">
+        <div class="lesson-heading">
+          <h1 id="selectors-title">
+            Kijelölők, pseudo-osztályok és pseudo-elemek
+          </h1>
+        </div>
+        <p class="selector-intro">
+          A CSS-szabály elején álló kijelölő mondja meg, melyik elemet formázzuk. A jobb oldalon
+          minden kártyában ugyanaz a HTML szerepel. Csak a bal oldalon látható CSS-szabály változik.
+        </p>
+        <details class="common-html" open>
+          <summary>
+            A példák közös HTML-kódja
+          </summary>
+          <pre><code class="language-html"><span class="token-punctuation">&lt;</span><span class="token-tag">div</span> <span class="token-attribute">class</span><span class="token-punctuation">=</span><span class="token-string">"szulo"</span><span class="token-punctuation">&gt;</span>
+  <span class="token-punctuation">&lt;</span><span class="token-tag">div</span> <span class="token-attribute">class</span><span class="token-punctuation">=</span><span class="token-string">"doboz"</span><span class="token-punctuation">&gt;</span>
+    Miau-Wan
+  <span class="token-punctuation">&lt;/</span><span class="token-tag">div</span><span class="token-punctuation">&gt;</span>
+  <span class="token-punctuation">&lt;</span><span class="token-tag">div</span> <span class="token-attribute">class</span><span class="token-punctuation">=</span><span class="token-string">"doboz"</span><span class="token-punctuation">&gt;</span>
+    Miau-D2
+  <span class="token-punctuation">&lt;/</span><span class="token-tag">div</span><span class="token-punctuation">&gt;</span>
+  <span class="token-punctuation">&lt;</span><span class="token-tag">section</span> <span class="token-attribute">class</span><span class="token-punctuation">=</span><span class="token-string">"belso"</span><span class="token-punctuation">&gt;</span>
+    <span class="token-punctuation">&lt;</span><span class="token-tag">div</span> <span class="token-attribute">class</span><span class="token-punctuation">=</span><span class="token-string">"doboz"</span><span class="token-punctuation">&gt;</span>
+      Cicapilóta
+    <span class="token-punctuation">&lt;/</span><span class="token-tag">div</span><span class="token-punctuation">&gt;</span>
+  <span class="token-punctuation">&lt;/</span><span class="token-tag">section</span><span class="token-punctuation">&gt;</span>
+  <span class="token-punctuation">&lt;</span><span class="token-tag">p</span> <span class="token-attribute">class</span><span class="token-punctuation">=</span><span class="token-string">"uzenet"</span><span class="token-punctuation">&gt;</span>
+    A CSS legyen veled. A cica ma a fénykarddal gyakorol.
+  <span class="token-punctuation">&lt;/</span><span class="token-tag">p</span><span class="token-punctuation">&gt;</span>
+  <span class="token-punctuation">&lt;</span><span class="token-tag">button</span> <span class="token-attribute">class</span><span class="token-punctuation">=</span><span class="token-string">"gomb"</span> <span class="token-attribute">type</span><span class="token-punctuation">=</span><span class="token-string">"button"</span><span class="token-punctuation">&gt;</span>
+    Fénykard
+  <span class="token-punctuation">&lt;/</span><span class="token-tag">button</span><span class="token-punctuation">&gt;</span>
+  <span class="token-punctuation">&lt;</span><span class="token-tag">label</span><span class="token-punctuation">&gt;</span>
+    <span class="token-punctuation">&lt;</span><span class="token-tag">input</span> <span class="token-attribute">type</span><span class="token-punctuation">=</span><span class="token-string">"checkbox"</span><span class="token-punctuation">&gt;</span>
+    <span class="token-punctuation">&lt;</span><span class="token-tag">span</span><span class="token-punctuation">&gt;</span>
+      Készen állok
+    <span class="token-punctuation">&lt;/</span><span class="token-tag">span</span><span class="token-punctuation">&gt;</span>
+  <span class="token-punctuation">&lt;/</span><span class="token-tag">label</span><span class="token-punctuation">&gt;</span>
+<span class="token-punctuation">&lt;/</span><span class="token-tag">div</span><span class="token-punctuation">&gt;</span></code></pre>
+        </details>
+        <p class="selector-intro">
+          A <code>szulo</code> két közvetlen <code>doboz</code> gyereket tartalmaz. A harmadik doboz
+          a <code>belso</code> section-ben van: a szülő leszármazottja, de nem a közvetlen gyereke.
+          A pseudo-osztály az elem állapota vagy a gyerekek közötti helye alapján választ ki; ilyen
+          a <code>:hover</code> és a <code>:first-child</code>. A pseudo-elem az elem egy részét
+          formázza vagy tartalmat ad hozzá, például <code>::first-letter</code> és
+          <code>::before</code>. Előbbinél egy, utóbbinál két kettőspontot írunk.
+        </p>
+        <h3 class="selector-group-title">
+          Kijelölés a HTML szerkezete alapján
+        </h3>
+        <article class="selector-card example-descendant">
+          <div class="selector-question">
+            <h4>
+              Hogyan választom ki az összes dobozt a szülőn belül?
+            </h4>
+            <pre><code class="language-css"><span class="token-selector">.szulo .doboz</span> <span class="token-punctuation">{</span>
+  <span class="token-property">background</span><span class="token-punctuation">:</span> <span class="token-number">#edbd7e</span><span class="token-punctuation">;</span>
+<span class="token-punctuation">}</span></code></pre>
+            <p>
+              A szóköz leszármazottat jelent: a két közvetlen gyereket és a belső section dobozát is
+              kiválasztja.
+            </p>
+          </div>
+          <div class="selector-result">
+            <div class="szulo">
+              <div class="doboz">
+                Miau-Wan
+              </div>
+              <div class="doboz">
+                Miau-D2
+              </div>
+              <section class="belso">
+                <div class="doboz">
+                  Cicapilóta
+                </div>
+              </section>
+              <p class="uzenet">
+                A CSS legyen veled. A cica ma a fénykarddal gyakorol.
+              </p>
+              <button class="gomb" type="button">
+                Fénykard
+              </button>
+              <label>
+                <input type="checkbox">
+                <span>
+                  Készen állok
+                </span>
+              </label>
+            </div>
+          </div>
+        </article>
+        <article class="selector-card example-children">
+          <div class="selector-question">
+            <h4>
+              Hogyan választom ki csak a két közvetlen gyerek dobozt?
+            </h4>
+            <pre><code class="language-css"><span class="token-selector">.szulo &gt; .doboz</span> <span class="token-punctuation">{</span>
+  <span class="token-property">background</span><span class="token-punctuation">:</span> <span class="token-number">#edbd7e</span><span class="token-punctuation">;</span>
+<span class="token-punctuation">}</span></code></pre>
+            <p>
+              A &gt; csak közvetlen gyereket választ ki. A Cicapilóta dobozának közvetlen szülője a
+              section, ezért az nem változik.
+            </p>
+          </div>
+          <div class="selector-result">
+            <div class="szulo">
+              <div class="doboz">
+                Miau-Wan
+              </div>
+              <div class="doboz">
+                Miau-D2
+              </div>
+              <section class="belso">
+                <div class="doboz">
+                  Cicapilóta
+                </div>
+              </section>
+              <p class="uzenet">
+                A CSS legyen veled. A cica ma a fénykarddal gyakorol.
+              </p>
+              <button class="gomb" type="button">
+                Fénykard
+              </button>
+              <label>
+                <input type="checkbox">
+                <span>
+                  Készen állok
+                </span>
+              </label>
+            </div>
+          </div>
+        </article>
+        <h3 class="selector-group-title">
+          Pseudo-osztályok: sorrend és elemtípus
+        </h3>
+        <article class="selector-card example-first">
+          <div class="selector-question">
+            <h4>
+              Hogyan választom ki az első gyerek dobozt?
+            </h4>
+            <pre><code class="language-css"><span class="token-selector">.szulo &gt; .doboz:first-child</span> <span class="token-punctuation">{</span>
+  <span class="token-property">background</span><span class="token-punctuation">:</span> <span class="token-number">#edbd7e</span><span class="token-punctuation">;</span>
+<span class="token-punctuation">}</span></code></pre>
+            <p>
+              A Miau-Wan doboz a szülő első gyereke, ezért csak annak változik meg a háttere.
+            </p>
+          </div>
+          <div class="selector-result">
+            <div class="szulo">
+              <div class="doboz">
+                Miau-Wan
+              </div>
+              <div class="doboz">
+                Miau-D2
+              </div>
+              <section class="belso">
+                <div class="doboz">
+                  Cicapilóta
+                </div>
+              </section>
+              <p class="uzenet">
+                A CSS legyen veled. A cica ma a fénykarddal gyakorol.
+              </p>
+              <button class="gomb" type="button">
+                Fénykard
+              </button>
+              <label>
+                <input type="checkbox">
+                <span>
+                  Készen állok
+                </span>
+              </label>
+            </div>
+          </div>
+        </article>
+        <article class="selector-card example-second">
+          <div class="selector-question">
+            <h4>
+              Hogyan választom ki a második gyerek dobozt?
+            </h4>
+            <pre><code class="language-css"><span class="token-selector">.szulo &gt; .doboz:nth-child(2)</span> <span class="token-punctuation">{</span>
+  <span class="token-property">background</span><span class="token-punctuation">:</span> <span class="token-number">#edbd7e</span><span class="token-punctuation">;</span>
+<span class="token-punctuation">}</span></code></pre>
+            <p>
+              A számozás 1-től indul. A második gyerek a Miau-D2 doboz.
+            </p>
+          </div>
+          <div class="selector-result">
+            <div class="szulo">
+              <div class="doboz">
+                Miau-Wan
+              </div>
+              <div class="doboz">
+                Miau-D2
+              </div>
+              <section class="belso">
+                <div class="doboz">
+                  Cicapilóta
+                </div>
+              </section>
+              <p class="uzenet">
+                A CSS legyen veled. A cica ma a fénykarddal gyakorol.
+              </p>
+              <button class="gomb" type="button">
+                Fénykard
+              </button>
+              <label>
+                <input type="checkbox">
+                <span>
+                  Készen állok
+                </span>
+              </label>
+            </div>
+          </div>
+        </article>
+        <article class="selector-card example-not-first">
+          <div class="selector-question">
+            <h4>
+              Hogyan választom ki a közvetlen dobozokat az első kivételével?
+            </h4>
+            <pre><code class="language-css"><span class="token-selector">.szulo &gt; .doboz:not(:first-child)</span> <span class="token-punctuation">{</span>
+  <span class="token-property">background</span><span class="token-punctuation">:</span> <span class="token-number">#edbd7e</span><span class="token-punctuation">;</span>
+<span class="token-punctuation">}</span></code></pre>
+            <p>
+              A :not kizárja az első gyereket. A két közvetlen dobozból így csak a második marad.
+            </p>
+          </div>
+          <div class="selector-result">
+            <div class="szulo">
+              <div class="doboz">
+                Miau-Wan
+              </div>
+              <div class="doboz">
+                Miau-D2
+              </div>
+              <section class="belso">
+                <div class="doboz">
+                  Cicapilóta
+                </div>
+              </section>
+              <p class="uzenet">
+                A CSS legyen veled. A cica ma a fénykarddal gyakorol.
+              </p>
+              <button class="gomb" type="button">
+                Fénykard
+              </button>
+              <label>
+                <input type="checkbox">
+                <span>
+                  Készen állok
+                </span>
+              </label>
+            </div>
+          </div>
+        </article>
+        <article class="selector-card example-message-first-child">
+          <div class="selector-question">
+            <h4>
+              Kiválasztja az első bekezdést a :first-child?
+            </h4>
+            <pre><code class="language-css"><span class="token-selector">.szulo &gt; .uzenet:first-child</span> <span class="token-punctuation">{</span>
+  <span class="token-property">background</span><span class="token-punctuation">:</span> <span class="token-number">#edbd7e</span><span class="token-punctuation">;</span>
+<span class="token-punctuation">}</span></code></pre>
+            <p>
+              Ebben a HTML-ben nem. A szülő első gyereke a Miau-Wan div, az üzenet pedig a
+              negyedik gyerek. A :first-child az összes gyerekelemet figyelembe veszi, ezért a
+              bekezdés háttere változatlan marad.
+            </p>
+          </div>
+          <div class="selector-result">
+            <div class="szulo">
+              <div class="doboz">
+                Miau-Wan
+              </div>
+              <div class="doboz">
+                Miau-D2
+              </div>
+              <section class="belso">
+                <div class="doboz">
+                  Cicapilóta
+                </div>
+              </section>
+              <p class="uzenet">
+                A CSS legyen veled. A cica ma a fénykarddal gyakorol.
+              </p>
+              <button class="gomb" type="button">
+                Fénykard
+              </button>
+              <label>
+                <input type="checkbox">
+                <span>
+                  Készen állok
+                </span>
+              </label>
+            </div>
+          </div>
+        </article>
+        <article class="selector-card example-first-type">
+          <div class="selector-question">
+            <h4>
+              Hogyan választom ki az első p típusú gyereket?
+            </h4>
+            <pre><code class="language-css"><span class="token-selector">.szulo &gt; .uzenet:first-of-type</span> <span class="token-punctuation">{</span>
+  <span class="token-property">background</span><span class="token-punctuation">:</span> <span class="token-number">#edbd7e</span><span class="token-punctuation">;</span>
+<span class="token-punctuation">}</span></code></pre>
+            <p>
+              A :first-of-type csak az azonos HTML-típusú testvéreket számolja. Az üzenet az
+              első p elem a szülőben, ezért aranyszínű lesz, bár előtte két div és egy section
+              is áll. A típus itt a p tag, nem az uzenet class.
+            </p>
+          </div>
+          <div class="selector-result">
+            <div class="szulo">
+              <div class="doboz">
+                Miau-Wan
+              </div>
+              <div class="doboz">
+                Miau-D2
+              </div>
+              <section class="belso">
+                <div class="doboz">
+                  Cicapilóta
+                </div>
+              </section>
+              <p class="uzenet">
+                A CSS legyen veled. A cica ma a fénykarddal gyakorol.
+              </p>
+              <button class="gomb" type="button">
+                Fénykard
+              </button>
+              <label>
+                <input type="checkbox">
+                <span>
+                  Készen állok
+                </span>
+              </label>
+            </div>
+          </div>
+        </article>
+        <article class="selector-card example-last-type">
+          <div class="selector-question">
+            <h4>
+              Hogyan választom ki az utolsó div típusú gyereket?
+            </h4>
+            <pre><code class="language-css"><span class="token-selector">.szulo &gt; .doboz:last-of-type</span> <span class="token-punctuation">{</span>
+  <span class="token-property">background</span><span class="token-punctuation">:</span> <span class="token-number">#edbd7e</span><span class="token-punctuation">;</span>
+<span class="token-punctuation">}</span></code></pre>
+            <p>
+              A Miau-D2 a szülő utolsó közvetlen div gyereke. A később álló section, p, button
+              és label más típusú elem, ezért nem számít bele. A section-ben lévő Cicapilóta div
+              másik szülőhöz tartozik.
+            </p>
+          </div>
+          <div class="selector-result">
+            <div class="szulo">
+              <div class="doboz">
+                Miau-Wan
+              </div>
+              <div class="doboz">
+                Miau-D2
+              </div>
+              <section class="belso">
+                <div class="doboz">
+                  Cicapilóta
+                </div>
+              </section>
+              <p class="uzenet">
+                A CSS legyen veled. A cica ma a fénykarddal gyakorol.
+              </p>
+              <button class="gomb" type="button">
+                Fénykard
+              </button>
+              <label>
+                <input type="checkbox">
+                <span>
+                  Készen állok
+                </span>
+              </label>
+            </div>
+          </div>
+        </article>
+        <article class="selector-card example-nth-type">
+          <div class="selector-question">
+            <h4>
+              Hogyan választom ki a második div típusú gyereket?
+            </h4>
+            <pre><code class="language-css"><span class="token-selector">.szulo &gt; .doboz:nth-of-type(2)</span> <span class="token-punctuation">{</span>
+  <span class="token-property">background</span><span class="token-punctuation">:</span> <span class="token-number">#edbd7e</span><span class="token-punctuation">;</span>
+<span class="token-punctuation">}</span></code></pre>
+            <p>
+              A :nth-of-type(2) az azonos HTML-típusú testvérek közül a másodikat választja ki:
+              itt a Miau-D2 divet. A számozás 1-től indul. A div számít típusnak; a doboz class
+              külön feltétel.
+            </p>
+          </div>
+          <div class="selector-result">
+            <div class="szulo">
+              <div class="doboz">
+                Miau-Wan
+              </div>
+              <div class="doboz">
+                Miau-D2
+              </div>
+              <section class="belso">
+                <div class="doboz">
+                  Cicapilóta
+                </div>
+              </section>
+              <p class="uzenet">
+                A CSS legyen veled. A cica ma a fénykarddal gyakorol.
+              </p>
+              <button class="gomb" type="button">
+                Fénykard
+              </button>
+              <label>
+                <input type="checkbox">
+                <span>
+                  Készen állok
+                </span>
+              </label>
+            </div>
+          </div>
+        </article>
+        <article class="selector-card example-nth-last-type">
+          <div class="selector-question">
+            <h4>
+              Hogyan számolom a div típusú gyerekeket hátulról?
+            </h4>
+            <pre><code class="language-css"><span class="token-selector">.szulo &gt; .doboz:nth-last-of-type(2)</span> <span class="token-punctuation">{</span>
+  <span class="token-property">background</span><span class="token-punctuation">:</span> <span class="token-number">#edbd7e</span><span class="token-punctuation">;</span>
+<span class="token-punctuation">}</span></code></pre>
+            <p>
+              A :nth-last-of-type(2) az azonos HTML-típusú testvérek közül hátulról a másodikat
+              választja ki. Két közvetlen div gyerek van: hátulról az első a Miau-D2, a második
+              a Miau-Wan.
+            </p>
+          </div>
+          <div class="selector-result">
+            <div class="szulo">
+              <div class="doboz">
+                Miau-Wan
+              </div>
+              <div class="doboz">
+                Miau-D2
+              </div>
+              <section class="belso">
+                <div class="doboz">
+                  Cicapilóta
+                </div>
+              </section>
+              <p class="uzenet">
+                A CSS legyen veled. A cica ma a fénykarddal gyakorol.
+              </p>
+              <button class="gomb" type="button">
+                Fénykard
+              </button>
+              <label>
+                <input type="checkbox">
+                <span>
+                  Készen állok
+                </span>
+              </label>
+            </div>
+          </div>
+        </article>
+        <article class="selector-card example-only-type">
+          <div class="selector-question">
+            <h4>
+              Hogyan választom ki az egyetlen p típusú gyereket?
+            </h4>
+            <pre><code class="language-css"><span class="token-selector">.szulo &gt; .uzenet:only-of-type</span> <span class="token-punctuation">{</span>
+  <span class="token-property">background</span><span class="token-punctuation">:</span> <span class="token-number">#edbd7e</span><span class="token-punctuation">;</span>
+<span class="token-punctuation">}</span></code></pre>
+            <p>
+              A :only-of-type akkor teljesül, ha az elemnek nincs másik azonos HTML-típusú
+              testvére. Az üzenet az egyetlen p a szülőben. Ha mellé még egy p kerülne, ez a
+              kijelölő egyik bekezdést sem választaná ki.
+            </p>
+          </div>
+          <div class="selector-result">
+            <div class="szulo">
+              <div class="doboz">
+                Miau-Wan
+              </div>
+              <div class="doboz">
+                Miau-D2
+              </div>
+              <section class="belso">
+                <div class="doboz">
+                  Cicapilóta
+                </div>
+              </section>
+              <p class="uzenet">
+                A CSS legyen veled. A cica ma a fénykarddal gyakorol.
+              </p>
+              <button class="gomb" type="button">
+                Fénykard
+              </button>
+              <label>
+                <input type="checkbox">
+                <span>
+                  Készen állok
+                </span>
+              </label>
+            </div>
+          </div>
+        </article>
+        <div class="selector-conclusion">
+          <h3>
+            Mi a különbség a :first-child és a :first-of-type között?
+          </h3>
+          <p>
+            A <code>:first-child</code> azt vizsgálja, hogy az elem a szülője legelső gyereke-e.
+            A <code>:first-of-type</code> azt vizsgálja, hogy az elem a saját HTML-típusából
+            az első-e a testvérei között. Mindkettő ugyanazon szülő gyerekelemein dolgozik.
+          </p>
+          <table class="selector-comparison">
+            <thead>
+              <tr>
+                <th scope="col">
+                  Kijelölő
+                </th>
+                <th scope="col">
+                  Az üzenet bekezdése a közös HTML-ben
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <code>.uzenet:first-child</code>
+                </td>
+                <td>
+                  Nem lesz kijelölve: a negyedik gyerekelem.
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <code>.uzenet:first-of-type</code>
+                </td>
+                <td>
+                  Kijelölve lesz: az első p típusú gyerekelem.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <p>
+            <strong>Következtetés:</strong> az első gyerek és az első adott típusú gyerek
+            nem feltétlenül ugyanaz. Az <code>of-type</code> a HTML-taget figyeli, például
+            <code>div</code> vagy <code>p</code>; nem az azonos class nevű elemeket számolja.
+            A <code>:nth-child()</code> és a <code>:nth-of-type()</code> között is ez a különbség.
+          </p>
+        </div>
+        <h3 class="selector-group-title">
+          Pseudo-osztályok: az elem állapota
+        </h3>
+        <article class="selector-card example-hover">
+          <div class="selector-question">
+            <h4>
+              Hogyan változzon meg a gomb, ha fölé viszem az egeret?
+            </h4>
+            <pre><code class="language-css"><span class="token-selector">.gomb:hover</span> <span class="token-punctuation">{</span>
+  <span class="token-property">background</span><span class="token-punctuation">:</span> <span class="token-number">#edbd7e</span><span class="token-punctuation">;</span>
+<span class="token-punctuation">}</span></code></pre>
+            <p>
+              Vidd az egeret a jobb oldali Fénykard gomb fölé. A :hover addig érvényes, amíg az egér
+              ott van.
+            </p>
+          </div>
+          <div class="selector-result">
+            <div class="szulo">
+              <div class="doboz">
+                Miau-Wan
+              </div>
+              <div class="doboz">
+                Miau-D2
+              </div>
+              <section class="belso">
+                <div class="doboz">
+                  Cicapilóta
+                </div>
+              </section>
+              <p class="uzenet">
+                A CSS legyen veled. A cica ma a fénykarddal gyakorol.
+              </p>
+              <button class="gomb" type="button">
+                Fénykard
+              </button>
+              <label>
+                <input type="checkbox">
+                <span>
+                  Készen állok
+                </span>
+              </label>
+            </div>
+          </div>
+        </article>
+        <article class="selector-card example-active">
+          <div class="selector-question">
+            <h4>
+              Hogyan változzon meg a gomb, amíg lenyomva tartom?
+            </h4>
+            <pre><code class="language-css"><span class="token-selector">.gomb:active</span> <span class="token-punctuation">{</span>
+  <span class="token-property">background</span><span class="token-punctuation">:</span> <span class="token-number">#edbd7e</span><span class="token-punctuation">;</span>
+<span class="token-punctuation">}</span></code></pre>
+            <p>
+              Tartsd lenyomva az egérgombot a Fénykard gombon. Az :active a lenyomás idejére
+              vonatkozik.
+            </p>
+          </div>
+          <div class="selector-result">
+            <div class="szulo">
+              <div class="doboz">
+                Miau-Wan
+              </div>
+              <div class="doboz">
+                Miau-D2
+              </div>
+              <section class="belso">
+                <div class="doboz">
+                  Cicapilóta
+                </div>
+              </section>
+              <p class="uzenet">
+                A CSS legyen veled. A cica ma a fénykarddal gyakorol.
+              </p>
+              <button class="gomb" type="button">
+                Fénykard
+              </button>
+              <label>
+                <input type="checkbox">
+                <span>
+                  Készen állok
+                </span>
+              </label>
+            </div>
+          </div>
+        </article>
+        <article class="selector-card example-focus">
+          <div class="selector-question">
+            <h4>
+              Hogyan kapjon keretet a gomb, ha rákerül a fókusz?
+            </h4>
+            <pre><code class="language-css"><span class="token-selector">.gomb:focus</span> <span class="token-punctuation">{</span>
+  <span class="token-property">outline</span><span class="token-punctuation">:</span> <span class="token-number">3px</span> solid <span class="token-number">#edbd7e</span><span class="token-punctuation">;</span>
+<span class="token-punctuation">}</span></code></pre>
+            <p>
+              Kattints a gombra, vagy lépj rá a Tab billentyűvel. A :focus jelzi, melyik elem kapja
+              a billentyűzetről érkező műveleteket.
+            </p>
+          </div>
+          <div class="selector-result">
+            <div class="szulo">
+              <div class="doboz">
+                Miau-Wan
+              </div>
+              <div class="doboz">
+                Miau-D2
+              </div>
+              <section class="belso">
+                <div class="doboz">
+                  Cicapilóta
+                </div>
+              </section>
+              <p class="uzenet">
+                A CSS legyen veled. A cica ma a fénykarddal gyakorol.
+              </p>
+              <button class="gomb" type="button">
+                Fénykard
+              </button>
+              <label>
+                <input type="checkbox">
+                <span>
+                  Készen állok
+                </span>
+              </label>
+            </div>
+          </div>
+        </article>
+        <article class="selector-card example-checked">
+          <div class="selector-question">
+            <h4>
+              Hogyan színezzem ki a szöveget, ha a négyzet be van jelölve?
+            </h4>
+            <pre><code class="language-css"><span class="token-selector">input:checked + span</span> <span class="token-punctuation">{</span>
+  <span class="token-property">background</span><span class="token-punctuation">:</span> <span class="token-number">#edbd7e</span><span class="token-punctuation">;</span>
+<span class="token-punctuation">}</span></code></pre>
+            <p>
+              Jelöld be a Készen állok négyzetet. A :checked a bejelölt inputot választja ki, a +
+              pedig az utána közvetlenül következő span elemet.
+            </p>
+          </div>
+          <div class="selector-result">
+            <div class="szulo">
+              <div class="doboz">
+                Miau-Wan
+              </div>
+              <div class="doboz">
+                Miau-D2
+              </div>
+              <section class="belso">
+                <div class="doboz">
+                  Cicapilóta
+                </div>
+              </section>
+              <p class="uzenet">
+                A CSS legyen veled. A cica ma a fénykarddal gyakorol.
+              </p>
+              <button class="gomb" type="button">
+                Fénykard
+              </button>
+              <label>
+                <input type="checkbox">
+                <span>
+                  Készen állok
+                </span>
+              </label>
+            </div>
+          </div>
+        </article>
+        <article class="selector-card example-sibling">
+          <div class="selector-question">
+            <h4>
+              Hogyan változzon a belső rész háttere, ha egy előtte álló doboz fölé viszem az egeret?
+            </h4>
+            <pre><code class="language-css"><span class="token-selector">.doboz:hover ~ .belso</span> <span class="token-punctuation">{</span>
+  <span class="token-property">background</span><span class="token-punctuation">:</span> <span class="token-number">#edbd7e</span><span class="token-punctuation">;</span>
+<span class="token-punctuation">}</span></code></pre>
+            <p>
+              Vidd az egeret a Miau-Wan vagy a Miau-D2 doboz fölé. A <code>:hover</code> az egér
+              alatti dobozt választja ki. A <code>~</code> az utána következő, azonos szülőhöz
+              tartozó <code>belso</code> elemet jelöli ki. Nem kell közvetlenül egymás után
+              állniuk: a Miau-Wan és a belső section között ott van a Miau-D2 doboz is.
+              A <code>~</code> testvérkijelölő; ebben a példában a <code>:hover</code>
+              pseudo-osztállyal együtt használjuk.
+            </p>
+          </div>
+          <div class="selector-result">
+            <div class="szulo">
+              <div class="doboz">
+                Miau-Wan
+              </div>
+              <div class="doboz">
+                Miau-D2
+              </div>
+              <section class="belso">
+                <div class="doboz">
+                  Cicapilóta
+                </div>
+              </section>
+              <p class="uzenet">
+                A CSS legyen veled. A cica ma a fénykarddal gyakorol.
+              </p>
+              <button class="gomb" type="button">
+                Fénykard
+              </button>
+              <label>
+                <input type="checkbox">
+                <span>
+                  Készen állok
+                </span>
+              </label>
+            </div>
+          </div>
+        </article>
+        <article class="selector-card example-sibling-message">
+          <div class="selector-question">
+            <h4>
+              Hogyan választom ki a dobozok után álló üzenetet?
+            </h4>
+            <pre><code class="language-css"><span class="token-selector">.szulo &gt; .doboz ~ .uzenet</span> <span class="token-punctuation">{</span>
+  <span class="token-property">background</span><span class="token-punctuation">:</span> <span class="token-number">#edbd7e</span><span class="token-punctuation">;</span>
+<span class="token-punctuation">}</span></code></pre>
+            <p>
+              A ~ az előtte megadott elem után álló testvéreket választja ki. Az üzenet és a két
+              doboz ugyanannak a szülőnek a gyerekei. A köztük álló section nem akadály: nem
+              kell közvetlenül egymás után állniuk. A dobozok háttere változatlan marad.
+            </p>
+          </div>
+          <div class="selector-result">
+            <div class="szulo">
+              <div class="doboz">
+                Miau-Wan
+              </div>
+              <div class="doboz">
+                Miau-D2
+              </div>
+              <section class="belso">
+                <div class="doboz">
+                  Cicapilóta
+                </div>
+              </section>
+              <p class="uzenet">
+                A CSS legyen veled. A cica ma a fénykarddal gyakorol.
+              </p>
+              <button class="gomb" type="button">
+                Fénykard
+              </button>
+              <label>
+                <input type="checkbox">
+                <span>
+                  Készen állok
+                </span>
+              </label>
+            </div>
+          </div>
+        </article>
+        <article class="selector-card example-sibling-all">
+          <div class="selector-question">
+            <h4>
+              Hogyan választom ki az első doboz összes utána álló testvérét?
+            </h4>
+            <pre><code class="language-css"><span class="token-selector">.szulo &gt; .doboz:first-child ~ *</span> <span class="token-punctuation">{</span>
+  <span class="token-property">background</span><span class="token-punctuation">:</span> <span class="token-number">#edbd7e</span><span class="token-punctuation">;</span>
+<span class="token-punctuation">}</span></code></pre>
+            <p>
+              A :first-child a Miau-Wan dobozt választja ki, a ~ pedig az utána álló
+              testvérekhez lép. A * bármilyen elemtípust elfogad: a Miau-D2, a belső section, az
+              üzenet, a gomb és a label háttere változik meg. Maga a Miau-Wan nem kerül
+              kijelölésre, és a section-ben lévő div sem testvére.
+            </p>
+          </div>
+          <div class="selector-result">
+            <div class="szulo">
+              <div class="doboz">
+                Miau-Wan
+              </div>
+              <div class="doboz">
+                Miau-D2
+              </div>
+              <section class="belso">
+                <div class="doboz">
+                  Cicapilóta
+                </div>
+              </section>
+              <p class="uzenet">
+                A CSS legyen veled. A cica ma a fénykarddal gyakorol.
+              </p>
+              <button class="gomb" type="button">
+                Fénykard
+              </button>
+              <label>
+                <input type="checkbox">
+                <span>
+                  Készen állok
+                </span>
+              </label>
+            </div>
+          </div>
+        </article>
+        <h3 class="selector-group-title">
+          Pseudo-elemek: az elem egy része vagy hozzáadott tartalom
+        </h3>
+        <article class="selector-card example-before">
+          <div class="selector-question">
+            <h4>
+              Hogyan kerüljön egy csillag az üzenet elé?
+            </h4>
+            <pre><code class="language-css"><span class="token-selector">.uzenet::before</span> <span class="token-punctuation">{</span>
+  <span class="token-property">content</span><span class="token-punctuation">:</span> <span class="token-string">"✦ "</span><span class="token-punctuation">;</span>
+  <span class="token-property">color</span><span class="token-punctuation">:</span> <span class="token-number">#93641e</span><span class="token-punctuation">;</span>
+<span class="token-punctuation">}</span></code></pre>
+            <p>
+              A ::before a bekezdés tartalma elé szúrja be a content értékét. A HTML-be nem kell
+              külön csillagot írni.
+            </p>
+          </div>
+          <div class="selector-result">
+            <div class="szulo">
+              <div class="doboz">
+                Miau-Wan
+              </div>
+              <div class="doboz">
+                Miau-D2
+              </div>
+              <section class="belso">
+                <div class="doboz">
+                  Cicapilóta
+                </div>
+              </section>
+              <p class="uzenet">
+                A CSS legyen veled. A cica ma a fénykarddal gyakorol.
+              </p>
+              <button class="gomb" type="button">
+                Fénykard
+              </button>
+              <label>
+                <input type="checkbox">
+                <span>
+                  Készen állok
+                </span>
+              </label>
+            </div>
+          </div>
+        </article>
+        <article class="selector-card example-after">
+          <div class="selector-question">
+            <h4>
+              Hogyan kerüljön egy rövid szöveg az üzenet végére?
+            </h4>
+            <pre><code class="language-css"><span class="token-selector">.uzenet::after</span> <span class="token-punctuation">{</span>
+  <span class="token-property">content</span><span class="token-punctuation">:</span> <span class="token-string">" Miau!"</span><span class="token-punctuation">;</span>
+  <span class="token-property">color</span><span class="token-punctuation">:</span> <span class="token-number">#93641e</span><span class="token-punctuation">;</span>
+<span class="token-punctuation">}</span></code></pre>
+            <p>
+              A ::after a bekezdés tartalma után szúrja be a content értékét.
+            </p>
+          </div>
+          <div class="selector-result">
+            <div class="szulo">
+              <div class="doboz">
+                Miau-Wan
+              </div>
+              <div class="doboz">
+                Miau-D2
+              </div>
+              <section class="belso">
+                <div class="doboz">
+                  Cicapilóta
+                </div>
+              </section>
+              <p class="uzenet">
+                A CSS legyen veled. A cica ma a fénykarddal gyakorol.
+              </p>
+              <button class="gomb" type="button">
+                Fénykard
+              </button>
+              <label>
+                <input type="checkbox">
+                <span>
+                  Készen állok
+                </span>
+              </label>
+            </div>
+          </div>
+        </article>
+        <article class="selector-card example-letter">
+          <div class="selector-question">
+            <h4>
+              Hogyan emeljem ki az üzenet első betűjét?
+            </h4>
+            <pre><code class="language-css"><span class="token-selector">.uzenet::first-letter</span> <span class="token-punctuation">{</span>
+  <span class="token-property">font-size</span><span class="token-punctuation">:</span> <span class="token-number">28px</span><span class="token-punctuation">;</span>
+  <span class="token-property">color</span><span class="token-punctuation">:</span> <span class="token-number">#93641e</span><span class="token-punctuation">;</span>
+<span class="token-punctuation">}</span></code></pre>
+            <p>
+              Csak a bekezdés első betűje változik meg. A többi betű eredeti méretű marad.
+            </p>
+          </div>
+          <div class="selector-result">
+            <div class="szulo">
+              <div class="doboz">
+                Miau-Wan
+              </div>
+              <div class="doboz">
+                Miau-D2
+              </div>
+              <section class="belso">
+                <div class="doboz">
+                  Cicapilóta
+                </div>
+              </section>
+              <p class="uzenet">
+                A CSS legyen veled. A cica ma a fénykarddal gyakorol.
+              </p>
+              <button class="gomb" type="button">
+                Fénykard
+              </button>
+              <label>
+                <input type="checkbox">
+                <span>
+                  Készen állok
+                </span>
+              </label>
+            </div>
+          </div>
+        </article>
+        <article class="selector-card example-line">
+          <div class="selector-question">
+            <h4>
+              Hogyan színezzem át az üzenet első sorát?
+            </h4>
+            <pre><code class="language-css"><span class="token-selector">.uzenet::first-line</span> <span class="token-punctuation">{</span>
+  <span class="token-property">color</span><span class="token-punctuation">:</span> <span class="token-number">#93641e</span><span class="token-punctuation">;</span>
+  <span class="token-property">font-weight</span><span class="token-punctuation">:</span> bold<span class="token-punctuation">;</span>
+<span class="token-punctuation">}</span></code></pre>
+            <p>
+              A megjelenített első sor változik. Hogy melyik szó fér bele, az a bekezdés
+              szélességétől is függ.
+            </p>
+          </div>
+          <div class="selector-result">
+            <div class="szulo">
+              <div class="doboz">
+                Miau-Wan
+              </div>
+              <div class="doboz">
+                Miau-D2
+              </div>
+              <section class="belso">
+                <div class="doboz">
+                  Cicapilóta
+                </div>
+              </section>
+              <p class="uzenet">
+                A CSS legyen veled. A cica ma a fénykarddal gyakorol.
+              </p>
+              <button class="gomb" type="button">
+                Fénykard
+              </button>
+              <label>
+                <input type="checkbox">
+                <span>
+                  Készen állok
+                </span>
+              </label>
+            </div>
+          </div>
+        </article>
+        <article class="selector-card example-selection">
+          <div class="selector-question">
+            <h4>
+              Hogyan változtassam meg a kijelölt szöveg színét?
+            </h4>
+            <pre><code class="language-css"><span class="token-selector">.uzenet::selection</span> <span class="token-punctuation">{</span>
+  <span class="token-property">background</span><span class="token-punctuation">:</span> <span class="token-number">#edbd7e</span><span class="token-punctuation">;</span>
+  <span class="token-property">color</span><span class="token-punctuation">:</span> <span class="token-number">#11151d</span><span class="token-punctuation">;</span>
+<span class="token-punctuation">}</span></code></pre>
+            <p>
+              Jelölj ki néhány szót az üzenetben egérrel. A ::selection csak a kijelölt szövegrész
+              megjelenését módosítja.
+            </p>
+          </div>
+          <div class="selector-result">
+            <div class="szulo">
+              <div class="doboz">
+                Miau-Wan
+              </div>
+              <div class="doboz">
+                Miau-D2
+              </div>
+              <section class="belso">
+                <div class="doboz">
+                  Cicapilóta
+                </div>
+              </section>
+              <p class="uzenet">
+                A CSS legyen veled. A cica ma a fénykarddal gyakorol.
+              </p>
+              <button class="gomb" type="button">
+                Fénykard
+              </button>
+              <label>
+                <input type="checkbox">
+                <span>
+                  Készen állok
+                </span>
+              </label>
+            </div>
+          </div>
+        </article>
+      </section>
+      <nav class="lesson-navigation page-width" aria-label="További témakörök">
+        <a href="pozicionalas.html">
+          ← Pozicionálás
+        </a>
+        <a href="attunesek.html">
+          Áttűnések →
+        </a>
+      </nav>
+      <footer class="site-footer page-width">
+        <p>
+          Meow Wars · CSS-példák
+        </p>
+      </footer>
+    </main>
+    <a class="back-top" href="#" aria-label="Vissza az oldal tetejére">
+      ↑
+    </a>
+  </body>
+</html>

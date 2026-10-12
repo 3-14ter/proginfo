@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="hu">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Áttűnések lépésről lépésre: szín, méret, átlátszóság, időtartam, késleltetés és sebességgörbék. A végén bekapcsoljuk a fénykardot.">
+    <title>
+      Áttűnések — Meow Wars
+    </title>
+    <link rel="icon" href="../assets/paw.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="../css/style.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#attunesek">
+      Ugrás a tananyaghoz
+    </a>
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="../index.html" aria-label="Meow Wars kezdőlap">
+          <img src="../assets/paw.svg" alt="" width="34" height="34">
+          <span>
+            MEOW
+            <b>
+              WARS
+            </b>
+            <small>
+              CSS-PÉLDÁK
+            </small>
+          </span>
+        </a>
+        <nav aria-label="Témakörök">
+          <a href="../index.html">
+            Kezdőlap
+          </a>
+          <a href="pozicionalas.html">
+            Pozicionálás
+          </a>
+          <a href="kijelolok.html">
+            Kijelölők
+          </a>
+          <a href="attunesek.html" aria-current="page">
+            Áttűnések
+          </a>
+          <a href="animaciok.html">
+            Animációk
+          </a>
+          <a href="transzformaciok.html">
+            Transzformációk
+          </a>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <section class="lesson page-width mint" id="attunesek" aria-labelledby="transition-title">
+        <div class="lesson-heading">
+          <h1 id="transition-title">
+            Áttűnések
+          </h1>
+        </div>
+        <p class="selector-intro">
+          Az áttűnés két állapot közötti változást tesz fokozatossá. Először egyszerű
+          dobozokon próbáljuk ki, majd a tanultakkal bekapcsoljuk a fénykardot.
+        </p>
+        <p class="transition-reading-note">
+          A kapcsolók ugyanazt a példát oda-vissza váltják. A beállítások külön tulajdonságokkal
+          szerepelnek; a végén a rövid <code>transition</code> alakot is összerakjuk.
+        </p>
+        <details class="code-details transition-foundation">
+          <summary>
+            <span>
+              A dobozos példák alapja: HTML és CSS
+            </span>
+            <span class="details-plus" aria-hidden="true">
+              +
+            </span>
+          </summary>
+          <div class="code-grid">
+            <pre><code class="language-html"><span class="token-punctuation">&lt;</span><span class="token-tag">input</span> <span class="token-attribute">type</span><span class="token-punctuation">=</span><span class="token-string">"checkbox"</span> <span class="token-attribute">id</span><span class="token-punctuation">=</span><span class="token-string">"color-change"</span><span class="token-punctuation">&gt;</span>
+<span class="token-punctuation">&lt;</span><span class="token-tag">label</span> <span class="token-attribute">for</span><span class="token-punctuation">=</span><span class="token-string">"color-change"</span><span class="token-punctuation">&gt;</span>
+  Másik állapot
+<span class="token-punctuation">&lt;/</span><span class="token-tag">label</span><span class="token-punctuation">&gt;</span>
+
+<span class="token-punctuation">&lt;</span><span class="token-tag">div</span> <span class="token-attribute">class</span><span class="token-punctuation">=</span><span class="token-string">"transition-track"</span><span class="token-punctuation">&gt;</span>
+  <span class="token-punctuation">&lt;</span><span class="token-tag">div</span> <span class="token-attribute">class</span><span class="token-punctuation">=</span><span class="token-string">"transition-box color-instant"</span><span class="token-punctuation">&gt;</span>
+    B
+  <span class="token-punctuation">&lt;/</span><span class="token-tag">div</span><span class="token-punctuation">&gt;</span>
+<span class="token-punctuation">&lt;/</span><span class="token-tag">div</span><span class="token-punctuation">&gt;</span>
+
+<span class="token-punctuation">&lt;</span><span class="token-tag">div</span> <span class="token-attribute">class</span><span class="token-punctuation">=</span><span class="token-string">"transition-track"</span><span class="token-punctuation">&gt;</span>
+  <span class="token-punctuation">&lt;</span><span class="token-tag">div</span> <span class="token-attribute">class</span><span class="token-punctuation">=</span><span class="token-string">"transition-box color-smooth"</span><span class="token-punctuation">&gt;</span>
+    B
+  <span class="token-punctuation">&lt;/</span><span class="token-tag">div</span><span class="token-punctuation">&gt;</span>
+<span class="token-punctuation">&lt;/</span><span class="token-tag">div</span><span class="token-punctuation">&gt;</span></code></pre>
+            <pre><code class="language-css"><span class="token-selector">.transition-box</span> <span class="token-punctuation">{</span>
+  <span class="token-property">position</span><span class="token-punctuation">:</span> relative<span class="token-punctuation">;</span>
+  <span class="token-property">left</span><span class="token-punctuation">:</span> <span class="token-number">0</span><span class="token-punctuation">;</span>
+  <span class="token-property">width</span><span class="token-punctuation">:</span> <span class="token-number">72px</span><span class="token-punctuation">;</span>
+  <span class="token-property">height</span><span class="token-punctuation">:</span> <span class="token-number">44px</span><span class="token-punctuation">;</span>
+  <span class="token-property">background-color</span><span class="token-punctuation">:</span> <span class="token-number">#a0efcf</span><span class="token-punctuation">;</span>
+<span class="token-punctuation">}</span>
+
+<span class="token-selector">.motion-box</span> <span class="token-punctuation">{</span>
+  <span class="token-property">width</span><span class="token-punctuation">:</span> <span class="token-number">44px</span><span class="token-punctuation">;</span>
+<span class="token-punctuation">}</span></code></pre>
+          </div>
+          <p class="code-explanation">
+            A <code>transition-box</code> a közös megjelenést adja, a második class az adott
+            példához tartozik. A kapcsoló után álló dobozokat a <code>:checked</code> és a
+            <code>~</code> segítségével jelöljük ki. A mozgó dobozok kisebbek, hogy elférjenek a pályán.
+          </p>
+        </details>
+        <article class="transition-example">
+          <div class="lesson-grid">
+            <div class="lesson-copy">
+              <h2>
+                Egy szín kétféleképpen változik
+              </h2>
+              <p>
+                Mindkét doboz zöldből sárgára vált. A felsőnél nincs áttűnés: a szín azonnal megváltozik. Az alsó ugyanazt a változást egy másodperc alatt végzi el.
+              </p>
+              <p>
+                A <code>transition-property: background-color</code> mondja meg, melyik tulajdonságot változtatjuk fokozatosan. A <code>transition-duration: 1s</code> adja meg az átmenet idejét.
+              </p>
+              <p>
+                Válts a másik állapotra, aztán vissza. Az áttűnés mindkét irányban működik, mert a <code>transition</code> beállításai az alapállapothoz tartoznak.
+              </p>
+            </div>
+            <div class="demo-panel">
+              <fieldset class="transition-lab">
+                <legend class="sr-only">
+                  Egy szín kétféleképpen változik
+                </legend>
+                <input class="control-input" type="checkbox" id="color-change">
+                <label class="choice" for="color-change">
+                  <span class="transition-start-text">
+                    Másik állapot
+                  </span>
+                  <span class="transition-reset-text">
+                    Alapállapot
+                  </span>
+                </label>
+                <p class="transition-lane-label">
+                  <code>Áttűnés nélkül</code>
+                </p>
+                <div class="transition-track ">
+                  <div class="transition-box color-instant">
+                    B
+                  </div>
+                </div>
+                <p class="transition-lane-label">
+                  <code>1s áttűnéssel</code>
+                </p>
+                <div class="transition-track ">
+                  <div class="transition-box color-smooth">
+                    B
+                  </div>
+                </div>
+              </fieldset>
+              <p class="demo-footnote">
+                A két doboz kezdő- és végszíne megegyezik; csak az átmenet különbözik.
+              </p>
+            </div>
+          </div>
+          <details class="code-details">
+            <summary>
+              <span>
+                Mutasd a kódot
+              </span>
+              <span class="details-plus" aria-hidden="true">
+                +
+              </span>
+            </summary>
+            <div class="code-grid">
+              <pre><code class="language-css"><span class="token-selector">.color-smooth</span> <span class="token-punctuation">{</span>
+  <span class="token-property">background-color</span><span class="token-punctuation">:</span> <span class="token-number">#a0efcf</span><span class="token-punctuation">;</span>
+  <span class="token-property">transition-property</span><span class="token-punctuation">:</span> background-color<span class="token-punctuation">;</span>
+  <span class="token-property">transition-duration</span><span class="token-punctuation">:</span> <span class="token-number">1s</span><span class="token-punctuation">;</span>
+<span class="token-punctuation">}</span></code></pre>
+              <pre><code class="language-css"><span class="token-selector">#color-change:checked ~ .transition-track .color-instant,</span>
+<span class="token-selector">#color-change:checked ~ .transition-track .color-smooth</span> <span class="token-punctuation">{</span>
+  <span class="token-property">background-color</span><span class="token-punctuation">:</span> <span class="token-number">#edbd7e</span><span class="token-punctuation">;</span>
+<span class="token-punctuation">}</span></code></pre>
+            </div>
+            <p class="code-explanation">
+              A felső dobozhoz nem adunk <code>transition</code> beállítást. A kapcsoló <code>:checked</code> állapota mindkét doboz új színét kijelöli.
+            </p>
+          </details>
+        </article>
+        <article class="transition-example">
+          <div class="lesson-grid">
+            <div class="lesson-copy">
+              <h2>
+                Az egér is válthat állapotot
+              </h2>
+              <p>
+                Az előző példa színváltását most egy gombon használjuk. A <code>:hover</code> akkor érvényes, amikor fölé viszed az egeret. Amikor leviszed róla, visszatér az alapszín.
+              </p>
+              <p>
+                A <code>:focus-visible</code> a billentyűzettel elért fókuszállapothoz tartozik. Próbáld ki a gombot Tab billentyűvel is: így az áttűnés egér nélkül is megfigyelhető.
+              </p>
+              <p>
+                A CSS csak a két állapotot és az átmenet idejét adja meg. A gomb itt a színváltást szemlélteti.
+              </p>
+            </div>
+            <div class="demo-panel">
+              <fieldset class="transition-lab">
+                <legend class="sr-only">
+                  Az egér is válthat állapotot
+                </legend>
+                <div class="transition-hover-stage">
+                  <button class="transition-hover-button" type="button">
+                    Fénykard
+                  </button>
+                </div>
+              </fieldset>
+              <p class="demo-footnote">
+                Vidd rá, majd le az egeret; billentyűzettel fókuszba lépve és kilépve is változik a szín.
+              </p>
+            </div>
+          </div>
+          <details class="code-details">
+            <summary>
+              <span>
+                Mutasd a kódot
+              </span>
+              <span class="details-plus" aria-hidden="true">
+                +
+              </span>
+            </summary>
+            <div class="code-grid">
+              <pre><code class="language-css"><span class="token-selector">.transition-hover-button</span> <span class="token-punctuation">{</span>
+  <span class="token-property">background-color</span><span class="token-punctuation">:</span> <span class="token-number">#a0efcf</span><span class="token-punctuation">;</span>
+  <span class="token-property">color</span><span class="token-punctuation">:</span> <span class="token-number">#10151e</span><span class="token-punctuation">;</span>
+  <span class="token-property">transition-property</span><span class="token-punctuation">:</span> background-color<span class="token-punctuation">;</span>
+  <span class="token-property">transition-duration</span><span class="token-punctuation">:</span> <span class="token-number">0.6s</span><span class="token-punctuation">;</span>
+<span class="token-punctuation">}</span></code></pre>
+              <pre><code class="language-css"><span class="token-selector">.transition-hover-button:hover,</span>
+<span class="token-selector">.transition-hover-button:focus-visible</span> <span class="token-punctuation">{</span>
+  <span class="token-property">background-color</span><span class="token-punctuation">:</span> <span class="token-number">#edbd7e</span><span class="token-punctuation">;</span>
+<span class="token-punctuation">}</span></code></pre>
+            </div>
+            <p class="code-explanation">
+              Az áttűnéshez állapotváltozás kell. Önmagában a <code>transition-duration</code> beállítása még nem változtatja meg a színt.
+            </p>
+          </details>
+        </article>
+        <article class="transition-example">
+          <div class="lesson-grid">
+            <div class="lesson-copy">
+              <h2>
+                Változzon a doboz szélessége
+              </h2>
+              <p>
+                A szín után egy méretet változtatunk meg. Az alapállapotban <code>width: 72px</code>, a másik állapotban <code>width: 180px</code> szerepel.
+              </p>
+              <p>
+                A <code>transition-property</code> most <code>width</code>. A böngésző másfél másodperc alatt jut el a kezdőszélességtől a végszélességig.
+              </p>
+              <p>
+                Próbálj visszaváltani még a növekedés közben. A doboz az éppen látható méretétől indul vissza, ezért nem ugrik előbb a végállapotba.
+              </p>
+            </div>
+            <div class="demo-panel">
+              <fieldset class="transition-lab">
+                <legend class="sr-only">
+                  Változzon a doboz szélessége
+                </legend>
+                <input class="control-input" type="checkbox" id="width-change">
+                <label class="choice" for="width-change">
+                  <span class="transition-start-text">
+                    Másik állapot
+                  </span>
+                  <span class="transition-reset-text">
+                    Alapállapot
+                  </span>
+                </label>
+                <div class="transition-track ">
+                  <div class="transition-box width-box">
+                    B
+                  </div>
+                </div>
+              </fieldset>
+              <p class="demo-footnote">
+                A szélesség változik, a magasság és a szín végig ugyanaz.
+              </p>
+            </div>
+          </div>
+          <details class="code-details">
+            <summary>
+              <span>
+                Mutasd a kódot
+              </span>
+              <span class="details-plus" aria-hidden="true">
+                +
+              </span>
+            </summary>
+            <div class="code-grid">
+              <pre><code class="language-css"><span class="token-selector">.width-box</span> <span class="token-punctuation">{</span>
+  <span class="token-property">width</span><span class="token-punctuation">:</span> <span class="token-number">72px</span><span class="token-punctuation">;</span>
+  <span class="token-property">transition-property</span><span class="token-punctuation">:</span> width<span class="token-punctuation">;</span>
+  <span class="token-property">transition-duration</span><span class="token-punctuation">:</span> <span class="token-number">1.5s</span><span class="token-punctuation">;</span>
+<span class="token-punctuation">}</span></code></pre>
+              <pre><code class="language-css"><span class="token-selector">#width-change:checked ~ .transition-track .width-box</span> <span class="token-punctuation">{</span>
+  <span class="token-property">width</span><span class="token-punctuation">:</span> <span class="token-number">180px</span><span class="token-punctuation">;</span>
+<span class="token-punctuation">}</span></code></pre>
+            </div>
+            <p class="code-explanation">
+              A <code>transition-property</code> annak a tulajdonságnak a neve, amelynek a két állapotban eltérő értéket adunk.
+            </p>
+          </details>
+        </article>
+        <article class="transition-example">
+          <div class="lesson-grid">
+            <div class="lesson-copy">
+              <h2>
+                Halványuljon el, de a helye maradjon meg
+              </h2>
+              <p>
+                Az <code>opacity: 1</code> teljesen látható, az <code>opacity: 0.5</code> félig átlátszó, az <code>opacity: 0</code> teljesen láthatatlan elemet jelent.
+              </p>
+              <p>
+                Előbb válassz célértéket, majd válts a másik állapotra. Az <code>opacity</code> egy másodperc alatt változik. A szaggatott keret mutatja, hogy a doboz helye akkor is megmarad, amikor már nem látszik.
+              </p>
+              <p>
+                Az átlátszóság a megjelenést változtatja, a doboz méretét és az elrendezésben elfoglalt helyét nem.
+              </p>
+            </div>
+            <div class="demo-panel">
+              <fieldset class="transition-lab">
+                <legend class="sr-only">
+                  Halványuljon el, de a helye maradjon meg
+                </legend>
+                <input class="control-input" type="radio" name="opacity-target" id="opacity-half" checked>
+                <label class="choice" for="opacity-half">
+                  opacity: 0.5
+                </label>
+                <input class="control-input" type="radio" name="opacity-target" id="opacity-zero">
+                <label class="choice" for="opacity-zero">
+                  opacity: 0
+                </label>
+                <input class="control-input" type="checkbox" id="opacity-change">
+                <label class="choice" for="opacity-change">
+                  <span class="transition-start-text">
+                    Másik állapot
+                  </span>
+                  <span class="transition-reset-text">
+                    Alapállapot
+                  </span>
+                </label>
+                <div class="transition-track opacity-track">
+                  <div class="transition-box opacity-box">
+                    B
+                  </div>
+                </div>
+              </fieldset>
+              <p class="demo-footnote">
+                Az Alapállapot kapcsoló visszahozza a dobozt opacity: 1 értékre.
+              </p>
+            </div>
+          </div>
+          <details class="code-details">
+            <summary>
+              <span>
+                Mutasd a kódot
+              </span>
+              <span class="details-plus" aria-hidden="true">
+                +
+              </span>
+            </summary>
+            <div class="code-grid">
+              <pre><code class="language-css"><span class="token-selector">.opacity-box</span> <span class="token-punctuation">{</span>
+  <span class="token-property">opacity</span><span class="token-punctuation">:</span> <span class="token-number">1</span><span class="token-punctuation">;</span>
+  <span class="token-property">transition-property</span><span class="token-punctuation">:</span> opacity<span class="token-punctuation">;</span>
+  <span class="token-property">transition-duration</span><span class="token-punctuation">:</span> <span class="token-number">1s</span><span class="token-punctuation">;</span>
+<span class="token-punctuation">}</span></code></pre>
+              <pre><code class="language-css"><span class="token-selector">#opacity-change:checked ~ .transition-track .opacity-box</span> <span class="token-punctuation">{</span>
+  <span class="token-property">opacity</span><span class="token-punctuation">:</span> <span class="token-number">0.5</span><span class="token-punctuation">;</span>
+<span class="token-punctuation">}</span>
+
+<span class="token-selector">#opacity-zero:checked ~ #opacity-change:checked</span>
+<span class="token-selector">~ .transition-track .opacity-box</span> <span class="token-punctuation">{</span>
+  <span class="token-property">opacity</span><span class="token-punctuation">:</span> <span class="token-number">0</span><span class="token-punctuation">;</span>
+<span class="token-punctuation">}</span></code></pre>
+            </div>
+            <p class="code-explanation">
+              A <code>0</code> átlátszóság nem távolítja el az elemet a HTML-ből. A keret a doboztól függetlenül jelzi az eredeti helyét.
+            </p>
+          </details>
+        </article>
+        <article class="transition-example">
+          <div class="lesson-grid">
+            <div class="lesson-copy">
+              <h2>
+                Ugyanaz az út rövidebb és hosszabb idő alatt
+              </h2>
+              <p>
+                Most két dobozt tolunk el <code>left: 0</code>-ról <code>left: 140px</code>-re. A <code>position: relative</code> miatt az eltolás a doboz saját alaphelyzetétől számít.
+              </p>
+              <p>
+                A felsőnél <code>transition-duration: 0.5s</code>, az alsónál <code>2s</code> szerepel. Az út ugyanakkora, ezért a rövidebb idejű mozgás gyorsabb.
+              </p>
+              <p>
+                Mindkettő <code>linear</code> időzítést kap, így a sebességük külön-külön végig egyenletes.
+              </p>
+            </div>
+            <div class="demo-panel">
+              <fieldset class="transition-lab">
+                <legend class="sr-only">
+                  Ugyanaz az út rövidebb és hosszabb idő alatt
+                </legend>
+                <input class="control-input" type="checkbox" id="duration-change">
+                <label class="choice" for="duration-change">
+                  <span class="transition-start-text">
+                    Másik állapot
+                  </span>
+                  <span class="transition-reset-text">
+                    Alapállapot
+                  </span>
+                </label>
+                <p class="transition-lane-label">
+                  <code>0.5s</code>
+                </p>
+                <div class="transition-track ">
+                  <div class="transition-box motion-box duration-fast">
+                    B
+                  </div>
+                </div>
+                <p class="transition-lane-label">
+                  <code>2s</code>
+                </p>
+                <div class="transition-track ">
+                  <div class="transition-box motion-box duration-slow">
+                    B
+                  </div>
+                </div>
+              </fieldset>
+              <p class="demo-footnote">
+                A kapcsoló egyszerre indítja őket. Visszaúton is a saját időtartamukat használják.
+              </p>
+            </div>
+          </div>
+          <details class="code-details">
+            <summary>
+              <span>
+                Mutasd a kódot
+              </span>
+              <span class="details-plus" aria-hidden="true">
+                +
+              </span>
+            </summary>
+            <div class="code-grid">
+              <pre><code class="language-css"><span class="token-selector">.duration-fast</span> <span class="token-punctuation">{</span>
+  <span class="token-property">transition-property</span><span class="token-punctuation">:</span> left<span class="token-punctuation">;</span>
+  <span class="token-property">transition-duration</span><span class="token-punctuation">:</span> <span class="token-number">0.5s</span><span class="token-punctuation">;</span>
+  <span class="token-property">transition-timing-function</span><span class="token-punctuation">:</span> linear<span class="token-punctuation">;</span>
+<span class="token-punctuation">}</span>
+
+<span class="token-selector">.duration-slow</span> <span class="token-punctuation">{</span>
+  <span class="token-property">transition-property</span><span class="token-punctuation">:</span> left<span class="token-punctuation">;</span>
+  <span class="token-property">transition-duration</span><span class="token-punctuation">:</span> <span class="token-number">2s</span><span class="token-punctuation">;</span>
+  <span class="token-property">transition-timing-function</span><span class="token-punctuation">:</span> linear<span class="token-punctuation">;</span>
+<span class="token-punctuation">}</span></code></pre>
+              <pre><code class="language-css"><span class="token-selector">#duration-change:checked ~ .transition-track .motion-box</span> <span class="token-punctuation">{</span>
+  <span class="token-property">left</span><span class="token-punctuation">:</span> <span class="token-number">140px</span><span class="token-punctuation">;</span>
+<span class="token-punctuation">}</span></code></pre>
+            </div>
+            <p class="code-explanation">
+              A <code>duration</code> az átmenet időtartama, nem az indulás előtti várakozás. A következő példa ezt a két időt választja külön.
+            </p>
+          </details>
+        </article>
+        <article class="transition-example">
+          <div class="lesson-grid">
+            <div class="lesson-copy">
+              <h2>
+                Várjunk az indulás előtt
+              </h2>
+              <p>
+                Mindkét doboz egy másodperc alatt teszi meg a 140 pixeles utat. A felső azonnal indul, az alsó előtte másfél másodpercet vár.
+              </p>
+              <p>
+                Ezt a <code>transition-delay: 1.5s</code> adja meg. Az alsó doboznál az állapotváltástól a célba érésig összesen két és fél másodperc telik el.
+              </p>
+              <p>
+                Válts vissza is. Mivel a késleltetést az alapállapotban adtuk meg, a visszaút előtt is ugyanennyit vár.
+              </p>
+            </div>
+            <div class="demo-panel">
+              <fieldset class="transition-lab">
+                <legend class="sr-only">
+                  Várjunk az indulás előtt
+                </legend>
+                <input class="control-input" type="checkbox" id="delay-change">
+                <label class="choice" for="delay-change">
+                  <span class="transition-start-text">
+                    Másik állapot
+                  </span>
+                  <span class="transition-reset-text">
+                    Alapállapot
+                  </span>
+                </label>
+                <p class="transition-lane-label">
+                  <code>delay: 0s</code>
+                </p>
+                <div class="transition-track ">
+                  <div class="transition-box motion-box delay-now">
+                    B
+                  </div>
+                </div>
+                <p class="transition-lane-label">
+                  <code>delay: 1.5s</code>
+                </p>
+                <div class="transition-track ">
+                  <div class="transition-box motion-box delay-wait">
+                    B
+                  </div>
+                </div>
+              </fieldset>
+              <p class="demo-footnote">
+                A várakozás nem része a duration értékének.
+              </p>
+            </div>
+          </div>
+          <details class="code-details">
+            <summary>
+              <span>
+                Mutasd a kódot
+              </span>
+              <span class="details-plus" aria-hidden="true">
+                +
+              </span>
+            </summary>
+            <div class="code-grid">
+              <pre><code class="language-css"><span class="token-selector">.delay-now,</span>
+<span class="token-selector">.delay-wait</span> <span class="token-punctuation">{</span>
+  <span class="token-property">transition-property</span><span class="token-punctuation">:</span> left<span class="token-punctuation">;</span>
+  <span class="token-property">transition-duration</span><span class="token-punctuation">:</span> <span class="token-number">1s</span><span class="token-punctuation">;</span>
+  <span class="token-property">transition-timing-function</span><span class="token-punctuation">:</span> linear<span class="token-punctuation">;</span>
+<span class="token-punctuation">}</span>
+
+<span class="token-selector">.delay-wait</span> <span class="token-punctuation">{</span>
+  <span class="token-property">transition-delay</span><span class="token-punctuation">:</span> <span class="token-number">1.5s</span><span class="token-punctuation">;</span>
+<span class="token-punctuation">}</span></code></pre>
+              <pre><code class="language-css"><span class="token-selector">#delay-change:checked ~ .transition-track .motion-box</span> <span class="token-punctuation">{</span>
+  <span class="token-property">left</span><span class="token-punctuation">:</span> <span class="token-number">140px</span><span class="token-punctuation">;</span>
+<span class="token-punctuation">}</span></code></pre>
+            </div>
+            <p class="code-explanation">
+              A felső doboz késleltetése az alapértelmezett <code>0s</code>. Az alsó ugyanúgy mozog, csak később kezd.
+            </p>
+          </details>
+        </article>
+        <article class="transition-example">
+          <div class="lesson-grid">
+            <div class="lesson-copy">
+              <h2>
+                Az időtartam ugyanaz, a sebesség változhat
+              </h2>
+              <p>
+                Mind a négy doboz két másodperc alatt ér célba. Most csak a <code>transition-timing-function</code> változik.
+              </p>
+              <p>
+                A <code>linear</code> egyenletes. Az <code>ease-in</code> lassan kezd, majd gyorsul; az <code>ease-out</code> gyorsan kezd, majd lassul. Az <code>ease-in-out</code> az elején és a végén is lassabb.
+              </p>
+              <p>
+                Válts állapotot, és figyeld meg, hogy félúton nem ugyanott tartanak, mégis egyszerre érnek célba.
+              </p>
+            </div>
+            <div class="demo-panel">
+              <fieldset class="transition-lab">
+                <legend class="sr-only">
+                  Az időtartam ugyanaz, a sebesség változhat
+                </legend>
+                <input class="control-input" type="checkbox" id="curve-change">
+                <label class="choice" for="curve-change">
+                  <span class="transition-start-text">
+                    Másik állapot
+                  </span>
+                  <span class="transition-reset-text">
+                    Alapállapot
+                  </span>
+                </label>
+                <p class="transition-lane-label">
+                  <code>linear</code>
+                </p>
+                <div class="transition-track ">
+                  <div class="transition-box motion-box curve-linear">
+                    B
+                  </div>
+                </div>
+                <p class="transition-lane-label">
+                  <code>ease-in</code>
+                </p>
+                <div class="transition-track ">
+                  <div class="transition-box motion-box curve-in">
+                    B
+                  </div>
+                </div>
+                <p class="transition-lane-label">
+                  <code>ease-out</code>
+                </p>
+                <div class="transition-track ">
+                  <div class="transition-box motion-box curve-out">
+                    B
+                  </div>
+                </div>
+                <p class="transition-lane-label">
+                  <code>ease-in-out</code>
+                </p>
+                <div class="transition-track ">
+                  <div class="transition-box motion-box curve-both">
+                    B
+                  </div>
+                </div>
+              </fieldset>
+              <p class="demo-footnote">
+                Az alapértelmezett ease szintén lassú kezdést és lassú befejezést ad, de más sebességgörbével.
+              </p>
+            </div>
+          </div>
+          <details class="code-details">
+            <summary>
+              <span>
+                Mutasd a kódot
+              </span>
+              <span class="details-plus" aria-hidden="true">
+                +
+              </span>
+            </summary>
+            <div class="code-grid">
+              <pre><code class="language-css"><span class="token-selector">.curve-linear,</span>
+<span class="token-selector">.curve-in,</span>
+<span class="token-selector">.curve-out,</span>
+<span class="token-selector">.curve-both</span> <span class="token-punctuation">{</span>
+  <span class="token-property">transition-property</span><span class="token-punctuation">:</span> left<span class="token-punctuation">;</span>
+  <span class="token-property">transition-duration</span><span class="token-punctuation">:</span> <span class="token-number">2s</span><span class="token-punctuation">;</span>
+<span class="token-punctuation">}</span>
+
+<span class="token-selector">.curve-linear</span> <span class="token-punctuation">{</span>
+  <span class="token-property">transition-timing-function</span><span class="token-punctuation">:</span> linear<span class="token-punctuation">;</span>
+<span class="token-punctuation">}</span></code></pre>
+              <pre><code class="language-css"><span class="token-selector">.curve-in</span> <span class="token-punctuation">{</span>
+  <span class="token-property">transition-timing-function</span><span class="token-punctuation">:</span> ease-in<span class="token-punctuation">;</span>
+<span class="token-punctuation">}</span>
+
+<span class="token-selector">.curve-out</span> <span class="token-punctuation">{</span>
+  <span class="token-property">transition-timing-function</span><span class="token-punctuation">:</span> ease-out<span class="token-punctuation">;</span>
+<span class="token-punctuation">}</span>
+
+<span class="token-selector">.curve-both</span> <span class="token-punctuation">{</span>
+  <span class="token-property">transition-timing-function</span><span class="token-punctuation">:</span> ease-in-out<span class="token-punctuation">;</span>
+<span class="token-punctuation">}</span>
+
+<span class="token-selector">#curve-change:checked ~ .transition-track .motion-box</span> <span class="token-punctuation">{</span>
+  <span class="token-property">left</span><span class="token-punctuation">:</span> <span class="token-number">140px</span><span class="token-punctuation">;</span>
+<span class="token-punctuation">}</span></code></pre>
+            </div>
+            <p class="code-explanation">
+              A <code>timing-function</code> a sebesség alakulását változtatja az átmenet idején belül; a teljes időtartamot továbbra is a <code>duration</code> adja.
+            </p>
+          </details>
+        </article>
+        <article class="transition-example">
+          <div class="lesson-grid">
+            <div class="lesson-copy">
+              <h2>
+                Válasszuk ki, melyik változás legyen fokozatos
+              </h2>
+              <p>
+                Mindkét doboz szélesebb és sárga lesz. A felsőnél csak a <code>width</code> szerepel a <code>transition-property</code> listájában: a szélesség fokozatosan változik, a szín azonnal.
+              </p>
+              <p>
+                Az alsónál <code>width, background-color</code> a lista, ezért mindkettő áttűnést kap. Az időket is felsorolhatjuk: a szélességhez <code>2s</code>, a színhez <code>0.5s</code> tartozik.
+              </p>
+              <p>
+                Az értékek sorrendje számít. A lista első ideje az első tulajdonságra, a második a másodikra vonatkozik.
+              </p>
+            </div>
+            <div class="demo-panel">
+              <fieldset class="transition-lab">
+                <legend class="sr-only">
+                  Válasszuk ki, melyik változás legyen fokozatos
+                </legend>
+                <input class="control-input" type="checkbox" id="properties-change">
+                <label class="choice" for="properties-change">
+                  <span class="transition-start-text">
+                    Másik állapot
+                  </span>
+                  <span class="transition-reset-text">
+                    Alapállapot
+                  </span>
+                </label>
+                <p class="transition-lane-label">
+                  <code>Csak width</code>
+                </p>
+                <div class="transition-track ">
+                  <div class="transition-box properties-width">
+                    B
+                  </div>
+                </div>
+                <p class="transition-lane-label">
+                  <code>width és background-color</code>
+                </p>
+                <div class="transition-track ">
+                  <div class="transition-box properties-both">
+                    B
+                  </div>
+                </div>
+              </fieldset>
+              <p class="demo-footnote">
+                Az alsó doboz már sárga lesz, amikor még szélesedik. Visszaúton is külön idejük van.
+              </p>
+            </div>
+          </div>
+          <details class="code-details">
+            <summary>
+              <span>
+                Mutasd a kódot
+              </span>
+              <span class="details-plus" aria-hidden="true">
+                +
+              </span>
+            </summary>
+            <div class="code-grid">
+              <pre><code class="language-css"><span class="token-selector">.properties-width</span> <span class="token-punctuation">{</span>
+  <span class="token-property">width</span><span class="token-punctuation">:</span> <span class="token-number">72px</span><span class="token-punctuation">;</span>
+  <span class="token-property">background-color</span><span class="token-punctuation">:</span> <span class="token-number">#a0efcf</span><span class="token-punctuation">;</span>
+  <span class="token-property">transition-property</span><span class="token-punctuation">:</span> width<span class="token-punctuation">;</span>
+  <span class="token-property">transition-duration</span><span class="token-punctuation">:</span> <span class="token-number">2s</span><span class="token-punctuation">;</span>
+<span class="token-punctuation">}</span>
+
+<span class="token-selector">.properties-both</span> <span class="token-punctuation">{</span>
+  <span class="token-property">width</span><span class="token-punctuation">:</span> <span class="token-number">72px</span><span class="token-punctuation">;</span>
+  <span class="token-property">background-color</span><span class="token-punctuation">:</span> <span class="token-number">#a0efcf</span><span class="token-punctuation">;</span>
+  <span class="token-property">transition-property</span><span class="token-punctuation">:</span> width<span class="token-punctuation">,</span> background-color<span class="token-punctuation">;</span>
+  <span class="token-property">transition-duration</span><span class="token-punctuation">:</span> <span class="token-number">2s</span><span class="token-punctuation">,</span> <span class="token-number">0.5s</span><span class="token-punctuation">;</span>
+<span class="token-punctuation">}</span></code></pre>
+              <pre><code class="language-css"><span class="token-selector">#properties-change:checked ~ .transition-track .properties-width,</span>
+<span class="token-selector">#properties-change:checked ~ .transition-track .properties-both</span> <span class="token-punctuation">{</span>
+  <span class="token-property">width</span><span class="token-punctuation">:</span> <span class="token-number">180px</span><span class="token-punctuation">;</span>
+  <span class="token-property">background-color</span><span class="token-punctuation">:</span> <span class="token-number">#edbd7e</span><span class="token-punctuation">;</span>
+<span class="token-punctuation">}</span>
+
+<span class="token-comment">/* Ugyanez az alsó doboznál röviden: */</span>
+<span class="token-selector">.properties-both</span> <span class="token-punctuation">{</span>
+  <span class="token-property">transition</span><span class="token-punctuation">:</span> width <span class="token-number">2s</span> ease<span class="token-punctuation">,</span> background-color <span class="token-number">0.5s</span> ease<span class="token-punctuation">;</span>
+<span class="token-punctuation">}</span></code></pre>
+            </div>
+            <p class="code-explanation">
+              Több áttűnést vesszővel választunk el. A tulajdonságok nevét külön megadva látszik, melyik változás mennyi ideig tart.
+            </p>
+          </details>
+        </article>
+        <article class="transition-example saber-transition-example">
+          <div class="lesson-grid">
+            <div class="lesson-copy">
+              <h2>
+                A fénykard bekapcsolása
+              </h2>
+              <p>
+                A dobozok után ugyanígy változtatjuk a fénykardot. Bekapcsoláskor a penge magasságát
+                0-ról 160 pixelre növeljük. A
+                <code>transition</code> miatt ez nem egyetlen pillanat alatt történik, hanem 0,7
+                másodperc alatt. Az új állapotot itt egy jelölőnégyzet kapcsolja be.
+              </p>
+              <p>
+                A háttér színe ugyanakkor, külön áttűnéssel változik. A penge és a háttér két
+                külön elem, ezért mindkettőhöz saját <code>transition</code> beállítás tartozik.
+              </p>
+              <div class="syntax-strip">
+                <code>
+                  height
+                </code>
+                <span>
+                  mit?
+                </span>
+                <code>
+                  0.7s
+                </code>
+                <span>
+                  mennyi idő?
+                </span>
+                <code>
+                  ease-out
+                </code>
+                <span>
+                  hogyan?
+                </span>
+              </div>
+            </div>
+            <div class="demo-panel">
+              <div class="saber-toggle-demo">
+                <input class="control-input" id="ignite" type="checkbox">
+                <label class="choice ignite-button" for="ignite">
+                  <span class="ignite-off">
+                    Fénykard bekapcsolása
+                  </span>
+                  <span class="ignite-on">
+                    Fénykard kikapcsolása
+                  </span>
+                  <span aria-hidden="true">
+                    ⏻
+                  </span>
+                </label>
+                <div class="ignite-scene scene-grid">
+                  <div class="lightsaber ignition-saber" aria-hidden="true">
+                    <span class="blade">
+                    </span>
+                    <span class="hilt">
+                    </span>
+                  </div>
+                  <p class="power-status">
+                    <span class="power-off">
+                      KÉSZENLÉT
+                    </span>
+                    <span class="power-on">
+                      AZ ERŐ AKTÍV
+                    </span>
+                  </p>
+                </div>
+              </div>
+              <p class="demo-footnote">
+                Az áttűnés visszafelé is működik. Kapcsold ki újra!
+              </p>
+            </div>
+          </div>
+          <details class="code-details">
+            <summary>
+              <span>
+                <span class="code-symbol">
+                  &lt;/&gt;
+                </span>
+                Mutasd a kódot
+                <small>
+                  transition + :checked
+                </small>
+              </span>
+              <span class="details-plus" aria-hidden="true">
+                +
+              </span>
+            </summary>
+            <div class="code-grid">
+              <pre><code class="language-css"><span class="token-selector">.ignition-saber .blade</span> <span class="token-punctuation">{</span>
+  <span class="token-property">height</span><span class="token-punctuation">:</span> <span class="token-number">0</span><span class="token-punctuation">;</span>
+  <span class="token-property">transition</span><span class="token-punctuation">:</span> height <span class="token-number">0.7s</span> ease-out<span class="token-punctuation">;</span>
+<span class="token-punctuation">}</span>
+
+<span class="token-selector">#ignite:checked ~ .ignite-scene .blade</span> <span class="token-punctuation">{</span>
+  <span class="token-property">height</span><span class="token-punctuation">:</span> <span class="token-number">160px</span><span class="token-punctuation">;</span>
+<span class="token-punctuation">}</span></code></pre>
+              <pre><code class="language-css"><span class="token-selector">.ignite-scene</span> <span class="token-punctuation">{</span>
+  <span class="token-property">background-color</span><span class="token-punctuation">:</span> <span class="token-number">#111b24</span><span class="token-punctuation">;</span>
+  <span class="token-property">transition</span><span class="token-punctuation">:</span> background-color <span class="token-number">0.7s</span><span class="token-punctuation">;</span>
+<span class="token-punctuation">}</span>
+
+<span class="token-selector">#ignite:checked ~ .ignite-scene</span> <span class="token-punctuation">{</span>
+  <span class="token-property">background-color</span><span class="token-punctuation">:</span> <span class="token-number">#15382d</span><span class="token-punctuation">;</span>
+<span class="token-punctuation">}</span></code></pre>
+            </div>
+            <p class="code-explanation">
+              A transition az alapállapothoz kerül, így a bekapcsolás és a kikapcsolás is fokozatos. A
+              <code>~</code> az input után álló testvérelemet választja ki.
+            </p>
+          </details>
+        </article>
+        <div class="transition-reference">
+          <h2>
+            Mit állítunk be a transition-ben?
+          </h2>
+          <dl class="compact-glossary">
+            <div>
+              <dt>
+                transition-property
+              </dt>
+              <dd>
+                Melyik tulajdonság változzon fokozatosan? Például width vagy background-color.
+              </dd>
+            </div>
+            <div>
+              <dt>
+                transition-duration
+              </dt>
+              <dd>
+                Mennyi ideig tartson a változás? A 0s alapértékkel nincs fokozatos átmenet.
+              </dd>
+            </div>
+            <div>
+              <dt>
+                transition-timing-function
+              </dt>
+              <dd>
+                Hogyan alakuljon a sebesség? Például linear vagy ease-in-out; alapértéke ease.
+              </dd>
+            </div>
+            <div>
+              <dt>
+                transition-delay
+              </dt>
+              <dd>
+                Mennyit várjon az indulás előtt? Alapértéke 0s.
+              </dd>
+            </div>
+          </dl>
+          <p>
+            A rövid <code>transition: width 2s linear 1s</code> jelentése: a szélesség két
+            másodperc alatt, egyenletesen változik, egy másodperc várakozás után.
+            Az első idő a duration, a második a delay.
+          </p>
+          <p>
+            Az áttűnéshez egy tulajdonság két eltérő értéke és állapotváltás kell.
+            A végén az új állapot marad érvényes, amíg újra nem váltunk; az áttűnés magától nem ismétlődik.
+          </p>
+        </div>
+      </section>
+      <nav class="lesson-navigation page-width" aria-label="További témakörök">
+        <a href="kijelolok.html">
+          ← Kijelölők
+        </a>
+        <a href="animaciok.html">
+          Animációk →
+        </a>
+      </nav>
+      <footer class="site-footer page-width">
+        <p>
+          Meow Wars · CSS-példák
+        </p>
+      </footer>
+    </main>
+    <a class="back-top" href="#" aria-label="Vissza az oldal tetejére">
+      ↑
+    </a>
+  </body>
+</html>

@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="hu">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="A dobozok helye, az eltolás kiindulópontja, a float és a rétegek sorrendje. A végén a fénykardot a cica mancsába tesszük.">
+    <title>
+      Pozicionálás — Meow Wars
+    </title>
+    <link rel="icon" href="../assets/paw.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="../css/style.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#pozicionalas">
+      Ugrás a tananyaghoz
+    </a>
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="../index.html" aria-label="Meow Wars kezdőlap">
+          <img src="../assets/paw.svg" alt="" width="34" height="34">
+          <span>
+            MEOW
+            <b>
+              WARS
+            </b>
+            <small>
+              CSS-PÉLDÁK
+            </small>
+          </span>
+        </a>
+        <nav aria-label="Témakörök">
+          <a href="../index.html">
+            Kezdőlap
+          </a>
+          <a href="pozicionalas.html" aria-current="page">
+            Pozicionálás
+          </a>
+          <a href="kijelolok.html">
+            Kijelölők
+          </a>
+          <a href="attunesek.html">
+            Áttűnések
+          </a>
+          <a href="animaciok.html">
+            Animációk
+          </a>
+          <a href="transzformaciok.html">
+            Transzformációk
+          </a>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <section class="lesson page-width amber" id="pozicionalas" aria-labelledby="position-title">
+        <div class="lesson-heading">
+          <h1 id="position-title">
+            Pozicionálás
+          </h1>
+        </div>
+        <p class="selector-intro">
+          Először egyszerű dobozokon nézzük meg, honnan mérjük az eltolást, és melyik elemnek
+          marad hely a sorban. Ezek után helyezzük a fénykardot a cica mancsába.
+        </p>
+        <article class="position-example">
+          <div class="lesson-grid">
+            <div class="lesson-copy">
+              <h3>
+                Normál helyzet: static
+              </h3>
+              <p>
+                Az A, B és C doboz a HTML sorrendjében, egymás alatt jelenik meg. A B doboz
+                <code>position: static</code> beállítású; ez az alapértelmezés. Kapcsold be a <code>top: 20px</code> és <code>left:
+                35px</code> értékeket. A B nem mozdul el: static mellett ezek az eltolások nem hatnak.
+              </p>
+            </div>
+            <div class="demo-panel">
+              <fieldset class="position-lab-controls">
+                <legend class="sr-only">
+                  A static elem eltolása
+                </legend>
+                <input class="control-input" type="checkbox" id="static-offset">
+                <label class="choice" for="static-offset">
+                  top: 20px; left: 35px;
+                </label>
+                <div class="position-lab-stage flow-stage static-stage">
+                  <div class="flow-box flow-a">
+                    A
+                  </div>
+                  <div class="flow-box static-box">
+                    B
+                  </div>
+                  <div class="flow-box flow-c">
+                    C
+                  </div>
+                </div>
+              </fieldset>
+              <p class="demo-footnote">
+                A kapcsoló a B top és left értékét változtatja, a position értékét nem.
+              </p>
+            </div>
+          </div>
+          <details class="code-details">
+            <summary>
+              <span>
+                Mutasd a kódot
+              </span>
+              <span class="details-plus" aria-hidden="true">
+                +
+              </span>
+            </summary>
+            <div class="code-grid">
+              <pre><code class="language-html"><span class="token-punctuation">&lt;</span><span class="token-tag">div</span> <span class="token-attribute">class</span><span class="token-punctuation">=</span><span class="token-string">"flow-stage"</span><span class="token-punctuation">&gt;</span>
+  <span class="token-punctuation">&lt;</span><span class="token-tag">div</span> <span class="token-attribute">class</span><span class="token-punctuation">=</span><span class="token-string">"flow-box"</span><span class="token-punctuation">&gt;</span>
+    A
+  <span class="token-punctuation">&lt;/</span><span class="token-tag">div</span><span class="token-punctuation">&gt;</span>
+  <span class="token-punctuation">&lt;</span><span class="token-tag">div</span> <span class="token-attribute">class</span><span class="token-punctuation">=</span><span class="token-string">"flow-box static-box"</span><span class="token-punctuation">&gt;</span>
+    B
+  <span class="token-punctuation">&lt;/</span><span class="token-tag">div</span><span class="token-punctuation">&gt;</span>
+  <span class="token-punctuation">&lt;</span><span class="token-tag">div</span> <span class="token-attribute">class</span><span class="token-punctuation">=</span><span class="token-string">"flow-box"</span><span class="token-punctuation">&gt;</span>
+    C
+  <span class="token-punctuation">&lt;/</span><span class="token-tag">div</span><span class="token-punctuation">&gt;</span>
+<span class="token-punctuation">&lt;/</span><span class="token-tag">div</span><span class="token-punctuation">&gt;</span></code></pre>
+              <pre><code class="language-css"><span class="token-selector">.static-box</span> <span class="token-punctuation">{</span>
+  <span class="token-property">position</span><span class="token-punctuation">:</span> static<span class="token-punctuation">;</span>
+  <span class="token-property">top</span><span class="token-punctuation">:</span> <span class="token-number">20px</span><span class="token-punctuation">;</span>
+  <span class="token-property">left</span><span class="token-punctuation">:</span> <span class="token-number">35px</span><span class="token-punctuation">;</span>
+<span class="token-punctuation">}</span></code></pre>
+            </div>
+          </details>
+        </article>
+        <article class="position-example">
+          <div class="lesson-grid">
+            <div class="lesson-copy">
+              <h3>
+                Eltolás a saját helyhez képest: relative
+              </h3>
+              <p>
+                A B most <code>position: relative</code> beállítást kap. A <code>top: 20px</code> a saját eredeti helyéhez
+                képest 20 pixellel lefelé, a <code>left: 35px</code> 35 pixellel jobbra viszi. Az eltolás nem a
+                szülő sarkától indul. A C helye változatlan marad: a B eredeti helyét a többi elem
+                továbbra is foglaltnak tekinti.
+              </p>
+            </div>
+            <div class="demo-panel">
+              <fieldset class="position-lab-controls">
+                <legend class="sr-only">
+                  A relative elem eltolása
+                </legend>
+                <input class="control-input" type="checkbox" id="relative-offset">
+                <label class="choice" for="relative-offset">
+                  Eltolás: 20px lefelé, 35px jobbra
+                </label>
+                <div class="position-lab-stage flow-stage relative-stage">
+                  <div class="flow-box flow-a">
+                    A
+                  </div>
+                  <div class="flow-box relative-box">
+                    B
+                  </div>
+                  <div class="flow-box flow-c">
+                    C
+                  </div>
+                  <div class="original-slot" aria-hidden="true">
+                    Eredeti hely
+                  </div>
+                </div>
+              </fieldset>
+              <p class="demo-footnote">
+                A szaggatott keret a B eredeti helye. A B rá is lóghat a C-re.
+              </p>
+            </div>
+          </div>
+          <details class="code-details">
+            <summary>
+              <span>
+                Mutasd a kódot
+              </span>
+              <span class="details-plus" aria-hidden="true">
+                +
+              </span>
+            </summary>
+            <div class="code-grid">
+              <pre><code class="language-html"><span class="token-punctuation">&lt;</span><span class="token-tag">div</span> <span class="token-attribute">class</span><span class="token-punctuation">=</span><span class="token-string">"flow-stage"</span><span class="token-punctuation">&gt;</span>
+  <span class="token-punctuation">&lt;</span><span class="token-tag">div</span> <span class="token-attribute">class</span><span class="token-punctuation">=</span><span class="token-string">"flow-box"</span><span class="token-punctuation">&gt;</span>
+    A
+  <span class="token-punctuation">&lt;/</span><span class="token-tag">div</span><span class="token-punctuation">&gt;</span>
+  <span class="token-punctuation">&lt;</span><span class="token-tag">div</span> <span class="token-attribute">class</span><span class="token-punctuation">=</span><span class="token-string">"flow-box relative-box"</span><span class="token-punctuation">&gt;</span>
+    B
+  <span class="token-punctuation">&lt;/</span><span class="token-tag">div</span><span class="token-punctuation">&gt;</span>
+  <span class="token-punctuation">&lt;</span><span class="token-tag">div</span> <span class="token-attribute">class</span><span class="token-punctuation">=</span><span class="token-string">"flow-box"</span><span class="token-punctuation">&gt;</span>
+    C
+  <span class="token-punctuation">&lt;/</span><span class="token-tag">div</span><span class="token-punctuation">&gt;</span>
+<span class="token-punctuation">&lt;/</span><span class="token-tag">div</span><span class="token-punctuation">&gt;</span></code></pre>
+              <pre><code class="language-css"><span class="token-selector">.relative-box</span> <span class="token-punctuation">{</span>
+  <span class="token-property">position</span><span class="token-punctuation">:</span> relative<span class="token-punctuation">;</span>
+  <span class="token-property">top</span><span class="token-punctuation">:</span> <span class="token-number">20px</span><span class="token-punctuation">;</span>
+  <span class="token-property">left</span><span class="token-punctuation">:</span> <span class="token-number">35px</span><span class="token-punctuation">;</span>
+<span class="token-punctuation">}</span></code></pre>
+            </div>
+          </details>
+        </article>
+        <article class="position-example">
+          <div class="lesson-grid">
+            <div class="lesson-copy">
+              <h3>
+                Hely megadása a szülőn belül: absolute
+              </h3>
+              <p>
+                A keret <code>position: relative</code> beállítású, a B pedig <code>position: absolute</code>. A B top és left
+                értékét ezért a keret belső bal felső sarkától mérjük. Kezdetben <code>top: 20px</code> és <code>left:
+                120px</code>; a kapcsolóval <code>top: 100px</code> és <code>left: 40px</code> lesz. Az A után a C következik a
+                normál elrendezésben: az absolute B számára nem marad külön hely.
+              </p>
+            </div>
+            <div class="demo-panel">
+              <fieldset class="position-lab-controls">
+                <legend class="sr-only">
+                  Az absolute elem helyzete
+                </legend>
+                <input class="control-input" type="checkbox" id="absolute-offset">
+                <label class="choice" for="absolute-offset">
+                  top: 100px; left: 40px;
+                </label>
+                <div class="position-lab-stage absolute-stage">
+                  <span class="coordinate-origin">
+                    Szülő: 0, 0 ↘
+                  </span>
+                  <div class="flow-box flow-a">
+                    A
+                  </div>
+                  <div class="flow-box absolute-box">
+                    B
+                  </div>
+                  <div class="flow-box flow-c">
+                    C
+                  </div>
+                </div>
+              </fieldset>
+              <p class="demo-footnote">
+                A 0, 0 a keret belső bal felső sarka. A C nem mozdul el a B áthelyezésekor.
+              </p>
+            </div>
+          </div>
+          <details class="code-details">
+            <summary>
+              <span>
+                Mutasd a kódot
+              </span>
+              <span class="details-plus" aria-hidden="true">
+                +
+              </span>
+            </summary>
+            <div class="code-grid">
+              <pre><code class="language-html"><span class="token-punctuation">&lt;</span><span class="token-tag">div</span> <span class="token-attribute">class</span><span class="token-punctuation">=</span><span class="token-string">"absolute-stage"</span><span class="token-punctuation">&gt;</span>
+  <span class="token-punctuation">&lt;</span><span class="token-tag">div</span> <span class="token-attribute">class</span><span class="token-punctuation">=</span><span class="token-string">"flow-box"</span><span class="token-punctuation">&gt;</span>
+    A
+  <span class="token-punctuation">&lt;/</span><span class="token-tag">div</span><span class="token-punctuation">&gt;</span>
+  <span class="token-punctuation">&lt;</span><span class="token-tag">div</span> <span class="token-attribute">class</span><span class="token-punctuation">=</span><span class="token-string">"flow-box absolute-box"</span><span class="token-punctuation">&gt;</span>
+    B
+  <span class="token-punctuation">&lt;/</span><span class="token-tag">div</span><span class="token-punctuation">&gt;</span>
+  <span class="token-punctuation">&lt;</span><span class="token-tag">div</span> <span class="token-attribute">class</span><span class="token-punctuation">=</span><span class="token-string">"flow-box"</span><span class="token-punctuation">&gt;</span>
+    C
+  <span class="token-punctuation">&lt;/</span><span class="token-tag">div</span><span class="token-punctuation">&gt;</span>
+<span class="token-punctuation">&lt;/</span><span class="token-tag">div</span><span class="token-punctuation">&gt;</span></code></pre>
+              <pre><code class="language-css"><span class="token-selector">.absolute-stage</span> <span class="token-punctuation">{</span>
+  <span class="token-property">position</span><span class="token-punctuation">:</span> relative<span class="token-punctuation">;</span>
+<span class="token-punctuation">}</span>
+
+<span class="token-selector">.absolute-box</span> <span class="token-punctuation">{</span>
+  <span class="token-property">position</span><span class="token-punctuation">:</span> absolute<span class="token-punctuation">;</span>
+  <span class="token-property">top</span><span class="token-punctuation">:</span> <span class="token-number">100px</span><span class="token-punctuation">;</span>
+  <span class="token-property">left</span><span class="token-punctuation">:</span> <span class="token-number">40px</span><span class="token-punctuation">;</span>
+<span class="token-punctuation">}</span></code></pre>
+            </div>
+          </details>
+        </article>
+        <article class="position-example">
+          <div class="lesson-grid">
+            <div class="lesson-copy">
+              <h3>
+                Hely az ablakhoz képest: fixed
+              </h3>
+              <p>
+                A <code>position: fixed</code> elem helyét itt a böngészőablakhoz képest adjuk meg. A <code>top: 100px</code>
+                100 pixel távolságot jelent az ablak tetejétől; a <code>right: 20px</code> a jobb szélétől.
+                Kapcsold be a jelzést, majd görgess. A többi tartalom továbbhalad, de a jelzés
+                ugyanott marad.
+              </p>
+            </div>
+            <div class="demo-panel">
+              <fieldset class="position-lab-controls">
+                <legend class="sr-only">
+                  A fixed jelzés megjelenítése
+                </legend>
+                <input class="control-input" type="checkbox" id="fixed-position">
+                <label class="choice" for="fixed-position">
+                  Mutasd a fixed jelzést
+                </label>
+                <p class="position-lab-help">
+                  Bekapcsolás után görgesd az oldalt. A jelzés az ablak jobb felső részén marad.
+                  Kikapcsoláshoz vedd ki a pipát.
+                </p>
+                <span class="window-marker">
+                  fixed
+                  <small>
+                    top: 100px; right: 20px;
+                  </small>
+                </span>
+              </fieldset>
+              <p class="demo-footnote">
+                Az oldal jobb alsó sarkában lévő felfelé nyíl is fixed beállítású.
+              </p>
+            </div>
+          </div>
+          <details class="code-details">
+            <summary>
+              <span>
+                Mutasd a kódot
+              </span>
+              <span class="details-plus" aria-hidden="true">
+                +
+              </span>
+            </summary>
+            <div class="code-grid">
+              <pre><code class="language-html"><span class="token-punctuation">&lt;</span><span class="token-tag">span</span> <span class="token-attribute">class</span><span class="token-punctuation">=</span><span class="token-string">"window-marker"</span><span class="token-punctuation">&gt;</span>
+  fixed
+<span class="token-punctuation">&lt;/</span><span class="token-tag">span</span><span class="token-punctuation">&gt;</span></code></pre>
+              <pre><code class="language-css"><span class="token-selector">.window-marker</span> <span class="token-punctuation">{</span>
+  <span class="token-property">position</span><span class="token-punctuation">:</span> fixed<span class="token-punctuation">;</span>
+  <span class="token-property">top</span><span class="token-punctuation">:</span> <span class="token-number">100px</span><span class="token-punctuation">;</span>
+  <span class="token-property">right</span><span class="token-punctuation">:</span> <span class="token-number">20px</span><span class="token-punctuation">;</span>
+<span class="token-punctuation">}</span></code></pre>
+            </div>
+          </details>
+        </article>
+        <article class="position-example">
+          <div class="lesson-grid">
+            <div class="lesson-copy">
+              <h3>
+                Görgetés közben tapadó elem: sticky
+              </h3>
+              <p>
+                A sticky elem először a tartalommal együtt mozog. Kapcsold be, majd görgess a jobb
+                oldali keretben. Amikor az elem eléri a top: 0 határt, a keret tetején marad, amíg a
+                szülője területe engedi. Itt a görgethető keret tetejéhez tapad; a fixed példában a
+                teljes böngészőablakhoz igazodtunk.
+              </p>
+            </div>
+            <div class="demo-panel">
+              <fieldset class="position-lab-controls">
+                <legend class="sr-only">
+                  A sticky beállítás kapcsolása
+                </legend>
+                <input class="control-input" type="checkbox" id="sticky-position">
+                <label class="choice" for="sticky-position">
+                  Kapcsold be a sticky beállítást
+                </label>
+                <div class="position-lab-stage sticky-stage" tabindex="0" role="region" aria-label="Görgethető sticky példa">
+                  <div class="sticky-content">
+                    <p class="sticky-leading">
+                      Itt kezdődik a görgethető tartalom.
+                    </p>
+                    <div class="sticky-tag">
+                      Ez az elem tapad a tetejéhez.
+                    </div>
+                    <p class="scroll-row">
+                      Első bekezdés a tapadó elem után.
+                    </p>
+                    <p class="scroll-row">
+                      Második bekezdés. Görgess tovább a kereten belül.
+                    </p>
+                    <p class="scroll-row">
+                      Harmadik bekezdés. A többi tartalom elhalad az elem mögött.
+                    </p>
+                    <p class="scroll-row">
+                      Utolsó bekezdés a szülő területén belül.
+                    </p>
+                  </div>
+                </div>
+              </fieldset>
+              <p class="demo-footnote">
+                Görgetés: egérrel, érintéssel vagy a keretre lépve a nyílbillentyűkkel.
+              </p>
+            </div>
+          </div>
+          <details class="code-details">
+            <summary>
+              <span>
+                Mutasd a kódot
+              </span>
+              <span class="details-plus" aria-hidden="true">
+                +
+              </span>
+            </summary>
+            <div class="code-grid">
+              <pre><code class="language-html"><span class="token-punctuation">&lt;</span><span class="token-tag">div</span> <span class="token-attribute">class</span><span class="token-punctuation">=</span><span class="token-string">"sticky-stage"</span><span class="token-punctuation">&gt;</span>
+  <span class="token-punctuation">&lt;</span><span class="token-tag">div</span> <span class="token-attribute">class</span><span class="token-punctuation">=</span><span class="token-string">"sticky-content"</span><span class="token-punctuation">&gt;</span>
+    <span class="token-punctuation">&lt;</span><span class="token-tag">p</span><span class="token-punctuation">&gt;</span>
+      Itt kezdődik a tartalom.
+    <span class="token-punctuation">&lt;/</span><span class="token-tag">p</span><span class="token-punctuation">&gt;</span>
+    <span class="token-punctuation">&lt;</span><span class="token-tag">div</span> <span class="token-attribute">class</span><span class="token-punctuation">=</span><span class="token-string">"sticky-tag"</span><span class="token-punctuation">&gt;</span>
+      Tapadó elem
+    <span class="token-punctuation">&lt;/</span><span class="token-tag">div</span><span class="token-punctuation">&gt;</span>
+    <span class="token-punctuation">&lt;</span><span class="token-tag">p</span><span class="token-punctuation">&gt;</span>
+      További görgethető tartalom…
+    <span class="token-punctuation">&lt;/</span><span class="token-tag">p</span><span class="token-punctuation">&gt;</span>
+  <span class="token-punctuation">&lt;/</span><span class="token-tag">div</span><span class="token-punctuation">&gt;</span>
+<span class="token-punctuation">&lt;/</span><span class="token-tag">div</span><span class="token-punctuation">&gt;</span></code></pre>
+              <pre><code class="language-css"><span class="token-selector">.sticky-stage</span> <span class="token-punctuation">{</span>
+  <span class="token-property">height</span><span class="token-punctuation">:</span> <span class="token-number">200px</span><span class="token-punctuation">;</span>
+  <span class="token-property">overflow-y</span><span class="token-punctuation">:</span> auto<span class="token-punctuation">;</span>
+<span class="token-punctuation">}</span>
+
+<span class="token-selector">.sticky-tag</span> <span class="token-punctuation">{</span>
+  <span class="token-property">position</span><span class="token-punctuation">:</span> sticky<span class="token-punctuation">;</span>
+  <span class="token-property">top</span><span class="token-punctuation">:</span> <span class="token-number">0</span><span class="token-punctuation">;</span>
+<span class="token-punctuation">}</span></code></pre>
+            </div>
+          </details>
+        </article>
+        <h3 class="position-types-title">
+          A position értékei
+        </h3>
+        <dl class="compact-glossary position-glossary">
+          <div>
+            <dt>
+              position: static
+            </dt>
+            <dd>
+              Az alapértelmezett beállítás. Az elem a HTML-ben megadott sorrend szerint
+              helyezkedik el. Ha megadunk neki például <code>top: 20px</code>-t, attól még nem
+              mozdul el.
+            </dd>
+          </div>
+          <div>
+            <dt>
+              position: relative
+            </dt>
+            <dd>
+              Az elemet az eredeti helyéhez képest toljuk el. A <code>top: 20px</code> például
+              20 pixellel lejjebb viszi. A többi elem úgy helyezkedik el, mintha nem mozdítottuk
+              volna el.
+            </dd>
+          </div>
+          <div>
+            <dt>
+              position: absolute
+            </dt>
+            <dd>
+              Az elem helyét külön adjuk meg, a többi elem nem hagy neki helyet. A top és left
+              a legközelebbi olyan őshöz igazodik, amelynek position értéke nem static.
+              A példában ez a relative szülő. Nem mindig a közvetlen szülő a viszonyítási pont.
+            </dd>
+          </div>
+          <div>
+            <dt>
+              position: fixed
+            </dt>
+            <dd>
+              Az elem a böngészőablakhoz igazodik. Görgetés közben is ugyanott látszik. Ilyen az
+              oldal jobb alsó sarkában lévő felfelé mutató nyíl.
+            </dd>
+          </div>
+          <div>
+            <dt>
+              position: sticky
+            </dt>
+            <dd>
+              Az elem először együtt mozog az oldallal. Ha eléri a megadott határt, ott marad a
+              szülője területén belül. A felső menü például <code>top: 0</code> mellett az ablak
+              tetején marad.
+            </dd>
+          </div>
+        </dl>
+        <div class="small-demo-grid">
+          <article class="mini-card">
+            <p class="eyebrow">
+              FLOAT + CLEAR
+            </p>
+            <h3>
+              Szöveg a droid körül
+            </h3>
+            <div class="float-example">
+              <img src="../assets/droid-cat.svg" alt="Apró cicadroid" width="200" height="230">
+              <p>
+                A <code>float: left</code> balra úsztatja a képet, a szöveg pedig körbefutja.
+                Miau-D2 mindig segít a kiképzésben.
+              </p>
+              <p class="clear-example">
+                <code>clear: both;</code> Innen újra teljes sorban folytatjuk.
+              </p>
+            </div>
+            <details>
+              <summary>
+                CSS megtekintése
+              </summary>
+              <pre><code class="language-css"><span class="token-selector">.float-example img</span> <span class="token-punctuation">{</span>
+  <span class="token-property">float</span><span class="token-punctuation">:</span> left<span class="token-punctuation">;</span>
+  <span class="token-property">width</span><span class="token-punctuation">:</span> <span class="token-number">64px</span><span class="token-punctuation">;</span>
+  <span class="token-property">margin-right</span><span class="token-punctuation">:</span> <span class="token-number">16px</span><span class="token-punctuation">;</span>
+<span class="token-punctuation">}</span>
+
+<span class="token-selector">.clear-example</span> <span class="token-punctuation">{</span>
+  <span class="token-property">clear</span><span class="token-punctuation">:</span> both<span class="token-punctuation">;</span>
+<span class="token-punctuation">}</span></code></pre>
+            </details>
+          </article>
+          <article class="mini-card layer-card">
+            <p class="eyebrow">
+              Z-INDEX
+            </p>
+            <h3>
+              Ki van elöl?
+            </h3>
+            <fieldset class="layer-controls">
+              <legend class="sr-only">
+                A Jedi-lap z-index értéke
+              </legend>
+              <input class="control-input" type="radio" name="jedi-depth" id="layer-back">
+              <label class="choice" for="layer-back">
+                -1
+              </label>
+              <input class="control-input" type="radio" name="jedi-depth" id="layer-normal" checked>
+              <label class="choice" for="layer-normal">
+                1
+              </label>
+              <input class="control-input" type="radio" name="jedi-depth" id="layer-front">
+              <label class="choice" for="layer-front">
+                3
+              </label>
+              <div class="layer-demo" aria-hidden="true">
+                <span class="layer jedi-layer">
+                  JEDI
+                  <small class="depth-normal">
+                    z-index: 1
+                  </small>
+                  <small class="depth-back">
+                    z-index: -1
+                  </small>
+                  <small class="depth-front">
+                    z-index: 3
+                  </small>
+                </span>
+                <span class="zero-layer">
+                  FEDŐLAP
+                  <small>
+                    z-index: 0
+                  </small>
+                </span>
+                <span class="layer sith-layer">
+                  SITH
+                  <small>
+                    z-index: 2
+                  </small>
+                </span>
+              </div>
+            </fieldset>
+            <p>
+              Az 1-es Jedi-lap a 0-s fedőlap előtt, a 2-es Sith-lap mögött van. A 3-as Jedi
+              előre kerül. A -1-es Jedi a fedőlap mögé kerül: a takart része nem látszik.
+              A negatív érték hátrébb helyez, nem törli az elemet.
+            </p>
+            <p>
+              A szülő <code>position: relative</code> és <code>z-index: 0</code> beállítása ebben a példában közös
+              rétegezési környezetet hoz létre. A -1-es lap így ezen a jeleneten belül marad.
+            </p>
+            <details>
+              <summary>
+                CSS megtekintése
+              </summary>
+              <pre><code class="language-css"><span class="token-selector">.layer-demo</span> <span class="token-punctuation">{</span>
+  <span class="token-property">position</span><span class="token-punctuation">:</span> relative<span class="token-punctuation">;</span>
+  <span class="token-property">z-index</span><span class="token-punctuation">:</span> <span class="token-number">0</span><span class="token-punctuation">;</span>
+<span class="token-punctuation">}</span>
+
+<span class="token-selector">.jedi-layer</span> <span class="token-punctuation">{</span>
+  <span class="token-property">position</span><span class="token-punctuation">:</span> absolute<span class="token-punctuation">;</span>
+  <span class="token-property">z-index</span><span class="token-punctuation">:</span> <span class="token-number">-1</span><span class="token-punctuation">;</span>
+<span class="token-punctuation">}</span>
+
+<span class="token-selector">.zero-layer</span> <span class="token-punctuation">{</span>
+  <span class="token-property">position</span><span class="token-punctuation">:</span> absolute<span class="token-punctuation">;</span>
+  <span class="token-property">z-index</span><span class="token-punctuation">:</span> <span class="token-number">0</span><span class="token-punctuation">;</span>
+<span class="token-punctuation">}</span>
+
+<span class="token-selector">.sith-layer</span> <span class="token-punctuation">{</span>
+  <span class="token-property">position</span><span class="token-punctuation">:</span> absolute<span class="token-punctuation">;</span>
+  <span class="token-property">z-index</span><span class="token-punctuation">:</span> <span class="token-number">2</span><span class="token-punctuation">;</span>
+<span class="token-punctuation">}</span></code></pre>
+            </details>
+          </article>
+          <article class="mini-card">
+            <h3>
+              Árnyékok
+            </h3>
+            <p class="glowing-text">
+              Az Erő veled van.
+            </p>
+            <p>
+              A <code>text-shadow</code> a betűknek, a <code>box-shadow</code> a doboznak ad
+              árnyékot. A két nulla az eltolás, a harmadik érték az elmosódás mérete.
+            </p>
+            <details>
+              <summary>
+                CSS megtekintése
+              </summary>
+              <pre><code class="language-css"><span class="token-selector">.glowing-text</span> <span class="token-punctuation">{</span>
+  <span class="token-property">text-shadow</span><span class="token-punctuation">:</span> <span class="token-number">0</span> <span class="token-number">0</span> <span class="token-number">18px</span> <span class="token-number">#a0efcf</span><span class="token-punctuation">;</span>
+  <span class="token-property">box-shadow</span><span class="token-punctuation">:</span> <span class="token-number">0</span> <span class="token-number">0</span> <span class="token-number">20px</span> <span class="token-number">#a0efcf22</span><span class="token-punctuation">;</span>
+<span class="token-punctuation">}</span></code></pre>
+            </details>
+          </article>
+        </div>
+        <article class="position-example saber-example">
+          <div class="lesson-grid">
+            <div class="lesson-copy">
+              <h3>
+                Hogyan kerül a kard a mancsba?
+              </h3>
+              <p>
+                A cicát és a kardot ugyanabba a <code>div</code>-be tesszük. Ez a jelenet. A jelenet
+                <code>position: relative</code> beállítást kap, a kard pedig <code>position:
+                absolute</code>-ot. Így a kard helyét a jelenet bal felső sarkától mérhetjük: a
+                <code>top</code> a felső szélétől, a <code>left</code> a bal szélétől megadott
+                távolság.
+              </p>
+            </div>
+            <div class="demo-panel">
+              <fieldset class="position-demo">
+                <legend class="sr-only">
+                  A fénykard helyzete
+                </legend>
+                <input class="control-input" type="radio" name="saber-place" id="saber-ground" checked>
+                <label class="choice" for="saber-ground">
+                  A földön
+                </label>
+                <input class="control-input" type="radio" name="saber-place" id="saber-hand">
+                <label class="choice" for="saber-hand">
+                  A mancsban
+                </label>
+                <input class="control-input" type="radio" name="saber-place" id="saber-force">
+                <label class="choice" for="saber-force">
+                  Az Erővel
+                </label>
+                <div class="position-scene scene-grid">
+                  <div class="scene-ring">
+                  </div>
+                  <img class="practice-cat" src="../assets/jedi-cat.svg" alt="Jedi cica, akinek a mancsába helyezheted a fénykardot" width="500" height="520">
+                  <div class="lightsaber practice-saber" aria-hidden="true">
+                    <span class="blade">
+                    </span>
+                    <span class="hilt">
+                    </span>
+                  </div>
+                  <span class="scene-origin">
+                    0, 0
+                    <span>
+                      ↘
+                    </span>
+                  </span>
+                  <span class="scene-label ground-label">
+                    top: 172px; left: 20px;
+                  </span>
+                  <span class="scene-label hand-label">
+                    top: 120px; left: 160px;
+                  </span>
+                  <span class="scene-label force-label">
+                    top: 32px; left: 35px;
+                  </span>
+                </div>
+              </fieldset>
+              <p class="demo-footnote">
+                A kard külön HTML-elem. A helyét a CSS határozza meg.
+              </p>
+            </div>
+          </div>
+          <details class="code-details">
+            <summary>
+              <span>
+                <span class="code-symbol">
+                  &lt;/&gt;
+                </span>
+                Mutasd a kódot
+                <small>
+                  position + top + left
+                </small>
+              </span>
+              <span class="details-plus" aria-hidden="true">
+                +
+              </span>
+            </summary>
+            <div class="code-grid">
+              <pre><code class="language-html"><span class="token-punctuation">&lt;</span><span class="token-tag">div</span> <span class="token-attribute">class</span><span class="token-punctuation">=</span><span class="token-string">"position-scene"</span><span class="token-punctuation">&gt;</span>
+  <span class="token-punctuation">&lt;</span><span class="token-tag">img</span> <span class="token-attribute">src</span><span class="token-punctuation">=</span><span class="token-string">"../assets/jedi-cat.svg"</span> <span class="token-attribute">alt</span><span class="token-punctuation">=</span><span class="token-string">"Jedi cica"</span><span class="token-punctuation">&gt;</span>
+  <span class="token-punctuation">&lt;</span><span class="token-tag">div</span> <span class="token-attribute">class</span><span class="token-punctuation">=</span><span class="token-string">"practice-saber"</span><span class="token-punctuation">&gt;</span>
+    …
+  <span class="token-punctuation">&lt;/</span><span class="token-tag">div</span><span class="token-punctuation">&gt;</span>
+<span class="token-punctuation">&lt;/</span><span class="token-tag">div</span><span class="token-punctuation">&gt;</span></code></pre>
+              <pre><code class="language-css"><span class="token-selector">.position-scene</span> <span class="token-punctuation">{</span>
+  <span class="token-property">position</span><span class="token-punctuation">:</span> relative<span class="token-punctuation">;</span>
+  <span class="token-property">width</span><span class="token-punctuation">:</span> <span class="token-number">260px</span><span class="token-punctuation">;</span>
+  <span class="token-property">height</span><span class="token-punctuation">:</span> <span class="token-number">320px</span><span class="token-punctuation">;</span>
+<span class="token-punctuation">}</span>
+
+<span class="token-selector">.practice-saber</span> <span class="token-punctuation">{</span>
+  <span class="token-property">position</span><span class="token-punctuation">:</span> absolute<span class="token-punctuation">;</span>
+  <span class="token-property">top</span><span class="token-punctuation">:</span> <span class="token-number">120px</span><span class="token-punctuation">;</span>
+  <span class="token-property">left</span><span class="token-punctuation">:</span> <span class="token-number">160px</span><span class="token-punctuation">;</span>
+  <span class="token-property">z-index</span><span class="token-punctuation">:</span> <span class="token-number">2</span><span class="token-punctuation">;</span>
+<span class="token-punctuation">}</span></code></pre>
+            </div>
+            <p class="code-explanation">
+              A kard teteje 120 pixelre van a jelenet felső szélétől, bal széle pedig 160 pixelre a
+              jelenet bal szélétől. A jelenet mérete ebben a példában 260 × 320 pixel.
+            </p>
+          </details>
+        </article>
+      </section>
+      <nav class="lesson-navigation page-width" aria-label="További témakörök">
+        <a href="../index.html">
+          ← Kezdőlap
+        </a>
+        <a href="kijelolok.html">
+          Kijelölők →
+        </a>
+      </nav>
+      <footer class="site-footer page-width">
+        <p>
+          Meow Wars · CSS-példák
+        </p>
+      </footer>
+    </main>
+    <a class="back-top" href="#" aria-label="Vissza az oldal tetejére">
+      ↑
+    </a>
+  </body>
+</html>
