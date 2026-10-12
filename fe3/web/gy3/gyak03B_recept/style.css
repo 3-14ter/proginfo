@@ -1,0 +1,70 @@
+* {
+    margin: 0;
+}
+
+body {
+    background-color: #f4f4f4;
+}
+
+h1 {
+    text-align: center;
+    margin: 16px;
+}
+
+.food-img {
+    display: block;
+    margin: 0 auto;
+    width: 300px;
+    border: 4px solid #73bc73;
+}
+
+.danger {
+    position: absolute;
+    z-index: -1;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 200px;
+    font-weight: bolder;
+    letter-spacing: 5px;
+    top: 50%;
+    left: 50%;
+    color: rgb(96, 96, 96);
+    transform: translate(-50%, -50%) rotate(30deg);
+    animation: danger 1s infinite alternate;    
+}
+
+.ingredient {
+    width: 500px;
+    height: 100px;
+    background-color: rgba(255, 255, 255, 0.7);
+    margin: 30px auto;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.25);
+    clear: both;
+    transition: 0.3s, ease-in-out;
+}
+
+.ingredient img {
+    width: 100px;
+    float: left;
+    margin-right: 20px;
+}
+
+.ingredient p {
+    line-height: 100px;
+    font-size: 20px;
+}
+.ingredient:hover{
+    transform: scale(1.05);
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.75);
+}
+
+@keyframes danger{
+    form{
+        color: black;
+        transform: translate(-50%, -50%) rotate(30deg);
+    }
+    to{
+        color: red;
+        transform: translate(-50%, -50%) rotate(30deg) scale(1.1);
+    }
+}

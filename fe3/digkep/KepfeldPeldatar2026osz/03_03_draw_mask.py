@@ -1,8 +1,8 @@
 import cv2
 import numpy as np
 
-file_in_base_name = 'webcam_selfie/webcam_selfie'
-file_in_name_ext = '.jpg'
+file_in_base_name = 'elom_nusk'
+file_in_name_ext = '.png'
 file_mask_base_name = file_in_base_name + '_mask'
 file_mask_name_ext = '.png'
 mouse_left_down = False

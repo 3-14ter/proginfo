@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NAV Cicák - CSS alapok</title>
+
+    <!-- KÜLSŐ CSS: relatív elérési út a gyökérből -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- BELSŐ / INTERNAL CSS: csak ezen az oldalon érvényes -->
+    <style>
+        .internal-demo {
+            color: #9b6b1b;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav-belso">
+                <a class="marka" href="index.html" aria-label="Kezdőlap">
+                    <img src="assets/nav_logo.png" alt="Nemzeti Alomvisszaszerzési Végrehajtóhivatal logó">
+                </a>
+
+                <ul class="menu">
+                    <li><a href="#alapok">CSS alapok I</a></li>
+                    <li><a href="#halado">CSS alapok II</a></li>
+                    <li><a href="pages/box_model.html">Dobozmodell</a></li>
+                    <li><a href="pages/gyakorlas.html">Gyakorlás</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="hero">
+            <div class="hero-szoveg">
+                <h1>Nemzeti Alomvisszaszerzési Végrehajtóhivatal</h1>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="alapok" class="szakasz">
+            <h2>1. CSS alapok I</h2>
+            <p class="bevezeto">Itt egyenként végig lehet menni a szintaxison, a CSS beágyazásán, a szelektorokon, a mértékegységeken és a szövegformázáson. A dobozmodell külön, nagy ábrákkal és élő példákkal kapott saját oldalt.</p>
+
+            <article class="kartya">
+                <h3>CSS szintaxis</h3>
+                <pre class="kodblokk"><code><span class="tok-selector">szelektor</span> <span class="tok-punct">{</span>
+    <span class="tok-property">tulajdonsag</span><span class="tok-punct">:</span> <span class="tok-value">ertek</span><span class="tok-punct">;</span>
+<span class="tok-punct">}</span></code></pre>
+                <p>A szelektor kiválasztja az elemet, a kapcsos zárójelek között pedig a formázásokat adjuk meg.</p>
+            </article>
+
+            <article class="kartya">
+                <h3>CSS beágyazása</h3>
+                <p style="color:#b8860b; font-weight:bold;">Ez a sor inline CSS-t használ.</p>
+                <p class="internal-demo">Ez a sor internal CSS-t használ.</p>
+                <p>Az oldal többi formázása a <code>css/style.css</code> külső CSS fájlból érkezik.</p>
+                <pre class="kodblokk"><code><span class="tok-tag">&lt;link</span> <span class="tok-attr">rel</span><span class="tok-punct">=</span><span class="tok-string">"stylesheet"</span> <span class="tok-attr">href</span><span class="tok-punct">=</span><span class="tok-string">"css/style.css"</span><span class="tok-tag">&gt;</span></code></pre>
+            </article>
+
+            <article class="kartya">
+                <h3>Alapvető szelektorok</h3>
+                <ul class="negyzet-lista">
+                    <li><code>p</code> - elem szelektor</li>
+                    <li><code>.kartya</code> - class szelektor</li>
+                    <li><code>#kiemelt-kozlemeny</code> - id szelektor</li>
+                    <li><code>*</code> - univerzális szelektor</li>
+                </ul>
+            </article>
+
+            <article class="kartya">
+                <h3>Értékek és mértékegységek</h3>
+                <p><strong>Abszolút:</strong> px, cm, mm, pt</p>
+                <p><strong>Relatív:</strong> %, em, rem, vw, vh</p>
+                <p><strong>Szín:</strong> green, rgb(0, 80, 55), #005037</p>
+                <div class="mertek-demo">50% széles demonstrációs doboz</div>
+            </article>
+
+            <article class="kartya teljes">
+                <h3>Szövegek formázása (innentől érdemes a kódban ugrálni)</h3>
+                <div class="szoveg-demo">
+                    <h4>MEOW műveleti közlemény</h4>
+                    <p>A jó CSS nem luxus, hanem <span class="kiemelt-szo">alapvető jog</span>.</p>
+                    <p class="nagybetus">alomvédelmi szolgálati közlemény</p>
+                </div>
+                <p><code>font-family</code>, <code>font-size</code>, <code>font-weight</code>, <code>font-style</code>, <code>color</code>, <code>text-align</code>, <code>text-transform</code></p>
+            </article>
+        </section>
+
+        <section id="halado" class="szakasz">
+            <h2>2. CSS alapok II</h2>
+
+            <article class="kartya teljes">
+                <h3>Táblázatok formázása - lefoglalt alom nyilvántartás</h3>
+                <table> <!-- NÉZZÜK MEG A BORDER BOXOT, HA A WIDTH: 100% -->
+                    <caption>MEOW Bevetési Egység - műveleti nyilvántartás</caption>
+                    <thead>
+                        <tr>
+                            <th>Azonosító</th>
+                            <th>Helyszín</th>
+                            <th>Alom típusa</th>
+                            <th>Státusz</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>MEOW-01</td>
+                            <td>Belvárosi raktár</td>
+                            <td>Prémium</td>
+                            <td>Visszaszerezve</td>
+                        </tr>
+                        <tr>
+                            <td>MEOW-02</td>
+                            <td>Kikötői telep</td>
+                            <td>Standard</td>
+                            <td>Vizsgálat alatt</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p><code>border</code>, <code>border-collapse</code>, <code>width</code>, <code>margin: auto</code>, <code>caption-side</code>, <code>vertical-align</code>, <code>text-align</code></p>
+            </article>
+
+            <article class="kartya">
+                <h3>Háttér formázása</h3>
+                <div class="hatter-demo">MEOW háttérpozíció</div>
+                <p><code>background-color</code>, <code>background-image</code>, <code>background-repeat</code>, <code>background-position</code>, <code>background-size</code></p>
+            </article>
+
+            <article class="kartya">
+                <h3>Display</h3>
+                <span class="display-inline">inline</span>
+                <span class="display-inline">inline</span>
+                <div class="display-block">block</div>
+                <span class="display-inline-block">inline-block</span>
+                <span class="display-inline-block">inline-block</span>
+                <span class="display-none">Ezt nem látod, mert display: none</span>
+            </article>
+
+            <article class="kartya">
+                <h3>Listák formázása</h3>
+                <ol class="roman-lista">
+                    <li>Bevetési terv</li>
+                    <li>Alom visszaszerzése</li>
+                    <li>Jelentés készítése</li>
+                </ol>
+                <p><code>list-style-type</code>, <code>list-style-position</code>, <code>list-style-image</code></p>
+            </article>
+
+            <article class="kartya">
+                <h3>Text-decoration</h3>
+                <p><a class="nav-link-demo" href="pages/gyakorlas.html">Link aláhúzás nélkül</a></p>
+                <p class="dekoralt">Pontozott arany aláhúzás</p>
+            </article>
+
+            <aside id="kiemelt-kozlemeny">
+                <strong>Hivatali közlemény:</strong> a tananyag után jöhet a gyakorló oldal, ahol négy feladatot kell megoldani.
+            </aside>
+        </section>
+    </main>
+
+    <footer>
+        NAV - Nemzeti Alomvisszaszerzési Végrehajtóhivatal 🐾
+    </footer>
+</body>
+</html>

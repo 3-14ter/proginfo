@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NAV Cicák - CSS dobozmodell</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav-belso">
+                <a class="marka" href="../index.html" aria-label="Kezdőlap">
+                    <img src="../assets/nav_logo.png" alt="Nemzeti Alomvisszaszerzési Végrehajtóhivatal logó">
+                </a>
+
+                <ul class="menu">
+                    <li><a href="../index.html">CSS tananyag</a></li>
+                    <li><a href="box_model.html">Dobozmodell</a></li>
+                    <li><a href="gyakorlas.html">Gyakorlás</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="box-hero">
+            <div class="box-hero-szoveg">
+                <h1>A CSS dobozmodell</h1>
+            </div>
+        </div>
+    </header>
+
+    <main class="box-main">
+        <section class="box-fejezet">
+            <h2>0. A teljes dobozmodell</h2>
+            <p class="bevezeto">Egy elem körül négy fontos réteget különböztetünk meg. Belül van a <strong>content</strong>, ezt veszi körül a <strong>padding</strong>, majd a <strong>border</strong>, végül kívül a <strong>margin</strong>.</p>
+
+            <figure class="box-kepblokk">
+                <img src="../assets/box_model_0.png" alt="A teljes CSS dobozmodell MEOW tematikában">
+                <figcaption>
+                    <strong>Hogyan olvasd az ábrát?</strong> A középső alomtálca a content. A körülötte lévő belső szabad terület a padding. A fal a border. A falon kívüli zóna a margin.
+                </figcaption>
+            </figure>
+        </section>
+
+        <section class="box-fejezet margin-fejezet">
+            <h2>1. Margin - a külső távolság</h2>
+            <p>A <code>margin</code> az elem <strong>borderén kívül</strong> helyezkedik el. Nem az elem belsejét növeli, hanem azt szabályozza, mekkora hely legyen az elem és a körülötte lévő más elemek között.</p>
+
+            <figure class="box-kepblokk">
+                <img src="../assets/box_model_1_margin.png" alt="A margin réteg szemléltetése">
+                <figcaption>A MEOW egység még az objektumon kívül mozog. Ez a külső tér felel meg a marginnak: az elem saját keretén kívüli távolságnak.</figcaption>
+            </figure>
+
+            <article class="elo-pelda">
+                <h3>Élő példa: ugyanazok a dobozok különböző margóval</h3>
+                <p>A három elem tartalma és paddingje azonos. Csak a margójuk változik, ezért a <strong>dobozok közötti távolság</strong> lesz más.</p>
+
+                <div class="margin-demo-terulet">
+                    <div class="margin-pelda m-kicsi">10px margin</div>
+                    <div class="margin-pelda m-nagy">35px margin</div>
+                    <div class="margin-pelda m-fuggoleges">10px 55px margin</div>
+                </div>
+
+                <pre class="kodblokk"><code><span class="tok-selector">.m-kicsi</span> <span class="tok-punct">{</span> <span class="tok-property">margin</span><span class="tok-punct">:</span> <span class="tok-number">10px</span><span class="tok-punct">;</span> <span class="tok-punct">}</span>
+<span class="tok-selector">.m-nagy</span> <span class="tok-punct">{</span> <span class="tok-property">margin</span><span class="tok-punct">:</span> <span class="tok-number">35px</span><span class="tok-punct">;</span> <span class="tok-punct">}</span>
+<span class="tok-selector">.m-fuggoleges</span> <span class="tok-punct">{</span> <span class="tok-property">margin</span><span class="tok-punct">:</span> <span class="tok-number">10px 55px</span><span class="tok-punct">;</span> <span class="tok-punct">}</span></code></pre>
+
+                <div class="kozepre-demo">
+                    <div class="kozepre-doboz">width: 55%; margin: 18px auto;</div>
+                </div>
+                <p>A bal és jobb margó <code>auto</code> értéke egy megadott szélességű blokkelemet vízszintesen középre tud igazítani.</p>
+            </article>
+        </section>
+
+        <section class="box-fejezet border-fejezet">
+            <h2>2. Border - a látható keret</h2>
+            <p>A <code>border</code> a padding és a margin közötti szegély. Egyszerre állíthatjuk a vastagságát, stílusát és színét. A <code>border-radius</code> a sarkok lekerekítésére szolgál.</p>
+
+            <figure class="box-kepblokk">
+                <img src="../assets/box_model_2_border.png" alt="A border réteg szemléltetése">
+                <figcaption>A fal jelképezi a bordert. A MEOW egységnek ezt kell áttörnie, mielőtt az elem belső területére, vagyis a paddingre jutna.</figcaption>
+            </figure>
+
+            <article class="elo-pelda">
+                <h3>Élő példa: háromféle szegély</h3>
+                <div class="border-demo-sor">
+                    <div class="border-pelda border-solid">solid</div>
+                    <div class="border-pelda border-dashed">dashed</div>
+                    <div class="border-pelda border-rounded">border-radius</div>
+                </div>
+                <pre class="kodblokk"><code><span class="tok-property">border</span><span class="tok-punct">:</span> <span class="tok-number">4px</span> <span class="tok-value">solid</span> <span class="tok-color">#c69a35</span><span class="tok-punct">;</span>
+<span class="tok-property">border</span><span class="tok-punct">:</span> <span class="tok-number">4px</span> <span class="tok-value">dashed</span> <span class="tok-color">#2f6b52</span><span class="tok-punct">;</span>
+<span class="tok-property">border-radius</span><span class="tok-punct">:</span> <span class="tok-number">24px</span><span class="tok-punct">;</span></code></pre>
+            </article>
+        </section>
+
+        <section class="box-fejezet padding-fejezet">
+            <h2>3. Padding - a belső térköz</h2>
+            <p>A <code>padding</code> az elem <strong>contentje és bordere között</strong> található. Ha növeljük, a tartalom távolabb kerül a kerettől, miközben a padding továbbra is az elem saját belső területe.</p>
+
+            <figure class="box-kepblokk">
+                <img src="../assets/box_model_3_padding.png" alt="A padding réteg szemléltetése">
+                <figcaption>A falon belüli járható folyosó a padding. A MEOW egység már az elemen belül van, de a tényleges tartalmat még nem érte el.</figcaption>
+            </figure>
+
+            <article class="elo-pelda">
+                <h3>Élő példa: ugyanaz a tartalom különböző paddinggel</h3>
+                <p>A külső border mindhárom doboznál hasonló. Figyeld meg, hogyan nő a <strong>tartalom és a keret közötti hely</strong>.</p>
+
+                <div class="padding-demo-sor">
+                    <div class="padding-pelda p-nulla"><span>padding: 0</span></div>
+                    <div class="padding-pelda p-kicsi"><span>padding: 12px</span></div>
+                    <div class="padding-pelda p-nagy"><span>padding: 38px</span></div>
+                </div>
+
+                <pre class="kodblokk"><code><span class="tok-selector">.p-nulla</span> <span class="tok-punct">{</span> <span class="tok-property">padding</span><span class="tok-punct">:</span> <span class="tok-number">0</span><span class="tok-punct">;</span> <span class="tok-punct">}</span>
+<span class="tok-selector">.p-kicsi</span> <span class="tok-punct">{</span> <span class="tok-property">padding</span><span class="tok-punct">:</span> <span class="tok-number">12px</span><span class="tok-punct">;</span> <span class="tok-punct">}</span>
+<span class="tok-selector">.p-nagy</span> <span class="tok-punct">{</span> <span class="tok-property">padding</span><span class="tok-punct">:</span> <span class="tok-number">38px</span><span class="tok-punct">;</span> <span class="tok-punct">}</span></code></pre>
+            </article>
+        </section>
+
+        <section class="box-fejezet content-fejezet">
+            <h2>4. Content - maga a tartalom</h2>
+            <p>A <code>content</code> az a terület, ahol az elem tényleges tartalma van: szöveg, kép, lista vagy bármilyen más HTML-tartalom. Alapesetben a <code>width</code> és <code>height</code> ezt a content területet méretezi.</p>
+
+            <figure class="box-kepblokk">
+                <img src="../assets/box_model_4_content.png" alt="A content réteg szemléltetése">
+                <figcaption>A művelet célpontja az alomtálca: ez a content. A margin, border és padding mind ezt veszi körül.</figcaption>
+            </figure>
+        </section>
+
+        <section class="box-fejezet">
+            <h2>5. Egy teljes élő doboz</h2>
+            <p>Ezen az egy elemen egyszerre figyelhető meg mind a négy réteg. A háttér a content/padding területét jelzi, az arany keret a border, a körülötte lévő üres hely pedig a margin.</p>
+
+            <div class="teljes-box-kornyezet">
+                <div class="box-demo">
+                    <strong>CONTENT: Visszaszerzett alom</strong>
+                    <p>padding: 32px · border: 8px · margin: 45px auto</p>
+                </div>
+            </div>
+
+            <pre class="kodblokk"><code><span class="tok-selector">.box-demo</span> <span class="tok-punct">{</span>
+    <span class="tok-property">width</span><span class="tok-punct">:</span> <span class="tok-number">70%</span><span class="tok-punct">;</span>
+    <span class="tok-property">margin</span><span class="tok-punct">:</span> <span class="tok-number">45px</span> <span class="tok-value">auto</span><span class="tok-punct">;</span>
+    <span class="tok-property">padding</span><span class="tok-punct">:</span> <span class="tok-number">32px</span><span class="tok-punct">;</span>
+    <span class="tok-property">border</span><span class="tok-punct">:</span> <span class="tok-number">8px</span> <span class="tok-value">solid</span> <span class="tok-color">#c69a35</span><span class="tok-punct">;</span>
+<span class="tok-punct">}</span></code></pre>
+        </section>
+
+        <section class="box-fejezet">
+            <h2>6. box-sizing - mit jelent a megadott szélesség?</h2>
+            <p><code>content-box</code> esetén a megadott <code>width</code> csak a content szélessége, ezért a padding és a border még hozzáadódik. <code>border-box</code> esetén a padding és a border már beleszámít a megadott szélességbe.</p>
+
+            <div class="sizing-sor">
+                <div class="sizing-pelda content-box-pelda">
+                    <strong>content-box</strong>
+                    <span>width: 280px</span>
+                    <span>+ padding + border</span>
+                </div>
+                <div class="sizing-pelda border-box-pelda">
+                    <strong>border-box</strong>
+                    <span>width: 280px</span>
+                    <span>padding és border belül</span>
+                </div>
+            </div>
+
+            <pre class="kodblokk"><code><span class="tok-selector">.content-box-pelda</span> <span class="tok-punct">{</span> <span class="tok-property">box-sizing</span><span class="tok-punct">:</span> <span class="tok-value">content-box</span><span class="tok-punct">;</span> <span class="tok-punct">}</span>
+<span class="tok-selector">.border-box-pelda</span>  <span class="tok-punct">{</span> <span class="tok-property">box-sizing</span><span class="tok-punct">:</span> <span class="tok-value">border-box</span><span class="tok-punct">;</span> <span class="tok-punct">}</span></code></pre>
+        </section>
+    </main>
+
+    <footer>
+        Aki eléri a contentet, visszaszerezte az almot. 🐾
+    </footer>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NAV Cicák - Gyakorlás</title>
+
+    <!-- Figyeld meg: innen egy szinttel vissza kell lépni a css mappához. -->
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav-belso">
+                <a class="marka" href="../index.html" aria-label="Kezdőlap">
+                    <img src="../assets/nav_logo.png" alt="Nemzeti Alomvisszaszerzési Végrehajtóhivatal logó">
+                </a>
+
+                <ul class="menu">
+                    <li><a href="../index.html">Tananyag</a></li>
+                    <li><a href="box_model.html">Dobozmodell</a></li>
+                    <li><a href="#feladat1">1. Szöveg</a></li>
+                    <li><a href="#feladat2">2. Kép</a></li>
+                    <li><a href="#feladat3">3. Igazítás</a></li>
+                    <li><a href="#feladat4">4. Háttér</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="hero gyakorlas-hero">
+            <div class="hero-szoveg">
+                <h1>CSS gyakorlópálya</h1>
+            </div>
+        </div>
+    </header>
+
+    <main class="gyakorlo-main">
+        <section id="feladat1" class="feladat">
+            <p class="sorszam">01</p>
+            <h2>Szövegszerkesztés</h2>
+            <p class="feladat-leiras">Formázd meg a műveleti jelentést CSS-sel.</p>
+
+            <div class="feladat-doboz">
+                <h3 class="todo-cim">MEOW műveleti jelentés</h3>
+                <p class="todo-szoveg">A Nemzeti Alomvisszaszerzési Végrehajtóhivatal bevetési egysége sikeresen biztosította a területet.</p>
+                <p class="todo-fontos">Célpont: 12 zsák prémium macskaalom.</p>
+            </div>
+
+            <ol>
+                <li>A címet tedd sötétzölddé és 32px méretűvé.</li>
+                <li>A normál szöveg legyen 18px és sorkizárt.</li>
+                <li>A fontos sort tedd félkövérré, dőltté és arany színűvé.</li>
+                <li>A címet alakítsd csupa nagybetűssé <code>text-transform</code> segítségével.</li>
+            </ol>
+        </section>
+
+        <section id="feladat2" class="feladat">
+            <p class="sorszam">02</p>
+            <h2>Kép beszúrás</h2>
+            <p class="feladat-leiras">Szúrj be egy képet relatív elérési úttal.</p>
+
+            <div class="kep-helye">
+                <p>Ide kerüljön a kép: <code>../assets/meow_hero.png</code></p>
+                <!-- FELADAT: ide írj egy img taget! -->
+
+            </div>
+
+            <ol>
+                <li>Használj <code>&lt;img&gt;</code> elemet.</li>
+                <li>Az <code>src</code> legyen <code>../assets/meow_hero.png</code>.</li>
+                <li>Adj értelmes <code>alt</code> szöveget.</li>
+                <li>CSS-ben állíts be maximum 700px szélességet és <code>width: 100%</code>-ot.</li>
+            </ol>
+        </section>
+
+        <section id="feladat3" class="feladat">
+            <p class="sorszam">03</p>
+            <h2>Kép igazítása</h2>
+            <p class="feladat-leiras">A kép már be van szúrva, most igazítsd középre.</p>
+
+            <div class="igazitas-terulet">
+                <img id="igazitando-kep" src="../assets/meow_hero.png" alt="MEOW bevetési cicák">
+            </div>
+
+            <ol>
+                <li>Tedd a képet blokkszintűvé: <code>display: block</code>.</li>
+                <li>Állítsd a vízszintes margókat automatikusra: <code>margin: 0 auto</code>.</li>
+                <li>Adj neki <code>width: 60%</code>-ot.</li>
+                <li>Próbáld ki a <code>margin-left: auto</code> és <code>margin-right: auto</code> különbségét is.</li>
+            </ol>
+        </section>
+
+        <section id="feladat4" class="feladat">
+            <p class="sorszam">04</p>
+            <h2>Background-position gyakorlás</h2>
+            <p class="feladat-leiras">Mozgasd a háttérképet a megfigyelőablakban.</p>
+
+            <div class="background-gyakorlat">
+                <span>MEOW megfigyelőállás</span>
+            </div>
+
+            <ol>
+                <li>Állítsd be háttérképnek a <code>../assets/meow_hero.png</code> fájlt.</li>
+                <li>Ne ismétlődjön: <code>background-repeat: no-repeat</code>.</li>
+                <li>Próbáld ki: <code>left top</code>, <code>center center</code>, <code>right center</code>.</li>
+                <li>Végül használd a <code>background-size: cover</code> értéket.</li>
+            </ol>
+        </section>
+
+        <section class="feladat bonusz">
+            <p class="sorszam">+</p>
+            <h2>Bónusz: dobozmodell</h2>
+            <p>Adj egy tetszőleges feladatdoboznak <code>padding</code>, <code>margin</code>, <code>border</code> és <code>border-radius</code> értékeket. Ezután módosítsd a szélességét, és figyeld meg a <code>box-sizing</code> hatását.</p>
+        </section>
+    </main>
+
+    <footer>
+        Aki eléri a contentet, visszaszerezte az almot. 🐾
+    </footer>
+</body>
+</html>

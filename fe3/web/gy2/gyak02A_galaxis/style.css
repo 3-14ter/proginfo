@@ -1,0 +1,53 @@
+
+header{
+    text-align: center;
+}
+
+h1{
+    color: #00008b;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+title{
+    color: #00008b;
+
+}
+
+p{
+    color: #00008b;
+}
+
+img{width: 320px}
+
+.container{
+    margin:2% 5%;
+    display: grid;
+    place-items: center;
+}
+
+.box{
+    border: 1px dashed #00008b;
+    margin-bottom: 5%;
+    display: inline-block;
+    width: 1000px;
+    text-align: left;
+    padding: 1rem;
+}
+
+.title{
+    font-size: 2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #00008b
+
+}
+
+.box-text{
+    text-align: left;
+}
+
+.image-container{
+    text-align: center;
+    margin-bottom: 2rem;
+}
+

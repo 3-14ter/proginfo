@@ -1,0 +1,90 @@
+* {
+    margin: 0;
+}
+
+h1, h2 {
+    text-align: center;
+    margin-top: 24px;
+    margin-bottom: 8px;
+}
+
+/* MENU */
+nav {
+    background-color: #95c1ff;
+    position: sticky;
+}
+
+#menu {
+    padding: 0;
+    text-align: center;
+}
+
+li{
+    height: 50px;
+    text-align: center;
+}
+.active {
+    background-color: #4d9be3;
+    font-weight: 600;
+}
+a {
+text-decoration: none;
+color: black;
+}
+.menu-link {
+    display: block;
+    padding: 1rem;
+}
+
+/* INFO */
+.info-card {    
+    width: 900px;
+    height: 300px;
+    margin: 0 auto;
+    background-color: #d7e6ff;
+    padding: 20px;
+    box-shadow:0 0 1rem, gray;
+}
+
+.info-description {
+    text-align: justify;
+    line-height: 2;
+    letter-spacing: 0.2px;
+}
+
+img {
+    width: 300px;
+    margin-right: 10px;
+    float: left;
+}
+
+/* ADVANTAGE */
+.advantage-container {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+.advantage {
+    background-color: #d7e6ff;
+    width: 265px;
+    margin: 0 20px;
+    border-width: 4rem;
+    padding: .7rem;
+}
+
+/* PRICE */
+#price {
+    margin: 30px auto;
+    text-align: center;
+    font-weight: 550;
+    font-size: 32px;
+}
+#price::after{
+    content: " Ft";
+}
+
+.name{
+    font-weight: bold;
+    text-transform: capitalize;
+}
